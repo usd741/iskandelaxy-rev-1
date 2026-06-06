@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bfpm81jutkdes"]
+
+[ext_resource type="Script" uid="uid://dwkiqo1ih6vn3" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+
+[node name="MainMenu" type="Control" unique_id=772982793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhj5c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=157673722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.16666663, 0.25, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1314644300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2004872386]
+layout_mode = 2
+alignment = 1
+
+[node name="Label_GameName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1110697769]
+layout_mode = 2
+text = "Исканделакси"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button_NewGame" type="Button" parent="MarginContainer/VBoxContainer" unique_id=172463025]
+layout_mode = 2
+text = "Новая игра"
+
+[node name="Button_Continue" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1370694748]
+layout_mode = 2
+disabled = true
+text = "Продолжить"
+
+[node name="Button_Scores" type="Button" parent="MarginContainer/VBoxContainer" unique_id=844027445]
+layout_mode = 2
+disabled = true
+text = "Лучшая игра"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_NewGame" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Scores" to="." method="_on_button_scores_pressed"]

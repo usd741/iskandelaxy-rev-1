@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ceslqqo5r6lpk"]
+
+[ext_resource type="Script" uid="uid://cvfimk044m52x" path="res://elements/space_ship/space_ship.gd" id="1_yhe4x"]
+[ext_resource type="Texture2D" uid="uid://buujauieb3qwf" path="res://assets/space_ship.png" id="1_yr3lb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykc67"]
+radius = 15.0
+
+[node name="SpaceShip" type="CharacterBody2D" unique_id=650018351]
+collision_layer = 2
+script = ExtResource("1_yhe4x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=659470608]
+texture = ExtResource("1_yr3lb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1935385987]
+shape = SubResource("CapsuleShape2D_ykc67")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://tkq4y3m8tuny"]
+
+[ext_resource type="Script" uid="uid://cppsporayl4qd" path="res://elements/powerUp/power_up_base.gd" id="1_ljwvj"]
+[ext_resource type="Texture2D" uid="uid://ci7blhv47xme7" path="res://assets/icons-pow-up.svg" id="2_tdrq7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7na34"]
+radius = 25.0
+height = 50.0
+
+[node name="PowerUp_Bronze" type="Area2D" unique_id=1799323543]
+script = ExtResource("1_ljwvj")
+points_value = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=311386563]
+shape = SubResource("CapsuleShape2D_7na34")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1359646407]
+texture = ExtResource("2_tdrq7")
+region_enabled = true
+region_rect = Rect2(146, 152, 62, 62)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=826647723]
+rect = Rect2(-30, -30, 60, 60)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

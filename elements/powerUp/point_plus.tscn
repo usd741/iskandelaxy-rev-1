@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cophsstt3moy0"]
+
+[ext_resource type="Script" uid="uid://dd4ajl8x4r5rg" path="res://elements/powerUp/point_plus.gd" id="1_x6e5x"]
+[ext_resource type="Texture2D" uid="uid://7wbg5v2mgpgs" path="res://assets/enemy-bullet.png" id="1_yjgov"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x6e5x"]
+radius = 1.0
+height = 4.0
+
+[node name="PointPlus" type="CharacterBody2D" unique_id=1741934872 groups=["power_up"]]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_x6e5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=590374945]
+texture = ExtResource("1_yjgov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1307513536]
+shape = SubResource("CapsuleShape2D_x6e5x")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1539320491]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

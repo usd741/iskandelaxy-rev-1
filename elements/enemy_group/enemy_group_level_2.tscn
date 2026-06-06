@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bcnx6hcwsamnr"]
+
+[ext_resource type="Script" uid="uid://bvmcju0gbyks3" path="res://elements/enemy_group/enemy_group.gd" id="1_5k1n1"]
+[ext_resource type="PackedScene" uid="uid://chimxleawne0o" path="res://elements/enemy/enemy.tscn" id="2_sptv3"]
+
+[node name="Enemy group_level_2" type="Node2D" unique_id=574652516 groups=["enemy_group"]]
+script = ExtResource("1_5k1n1")
+
+[node name="Enemy1" parent="." unique_id=354368420 instance=ExtResource("2_sptv3")]
+position = Vector2(65, 30)
+
+[node name="Enemy2" parent="." unique_id=702530719 instance=ExtResource("2_sptv3")]
+position = Vector2(125, 30)
+
+[node name="Enemy3" parent="." unique_id=1149189104 instance=ExtResource("2_sptv3")]
+position = Vector2(185, 30)
+
+[node name="Enemy4" parent="." unique_id=1666299223 instance=ExtResource("2_sptv3")]
+position = Vector2(95, 50)
+
+[node name="Enemy5" parent="." unique_id=2076106214 instance=ExtResource("2_sptv3")]
+position = Vector2(155, 50)
+
+[node name="Enemy7" parent="." unique_id=1002547870 instance=ExtResource("2_sptv3")]
+position = Vector2(65, 70)
+
+[node name="Enemy10" parent="." unique_id=626587575 instance=ExtResource("2_sptv3")]
+position = Vector2(95, 70)
+
+[node name="Enemy8" parent="." unique_id=1305314782 instance=ExtResource("2_sptv3")]
+position = Vector2(125, 70)
+
+[node name="Enemy11" parent="." unique_id=1697085433 instance=ExtResource("2_sptv3")]
+position = Vector2(155, 70)
+
+[node name="Enemy9" parent="." unique_id=152119546 instance=ExtResource("2_sptv3")]
+position = Vector2(185, 70)
+
+[node name="BlockTimer" type="Timer" parent="." unique_id=211348929]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="." unique_id=521098385]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

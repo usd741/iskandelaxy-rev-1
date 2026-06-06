@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://d2td3iafuqpsd"]
+
+[ext_resource type="Script" uid="uid://bvmcju0gbyks3" path="res://elements/enemy_group/enemy_group.gd" id="1_mn5x3"]
+[ext_resource type="PackedScene" uid="uid://chimxleawne0o" path="res://elements/enemy/enemy.tscn" id="1_qky66"]
+
+[node name="Enemy group" type="Node2D" unique_id=574652516 groups=["enemy_group"]]
+script = ExtResource("1_mn5x3")
+
+[node name="Enemy" parent="." unique_id=354368420 instance=ExtResource("1_qky66")]
+position = Vector2(30, 30)
+
+[node name="Enemy2" parent="." unique_id=908359768 instance=ExtResource("1_qky66")]
+position = Vector2(60, 30)
+
+[node name="Enemy3" parent="." unique_id=702530719 instance=ExtResource("1_qky66")]
+position = Vector2(90, 30)
+
+[node name="Enemy4" parent="." unique_id=1779571388 instance=ExtResource("1_qky66")]
+position = Vector2(120, 30)
+
+[node name="Enemy9" parent="." unique_id=805526 instance=ExtResource("1_qky66")]
+position = Vector2(75, 50)
+
+[node name="Enemy10" parent="." unique_id=2076106214 instance=ExtResource("1_qky66")]
+position = Vector2(105, 50)
+
+[node name="Enemy11" parent="." unique_id=398451726 instance=ExtResource("1_qky66")]
+position = Vector2(135, 50)
+
+[node name="Enemy12" parent="." unique_id=1146765027 instance=ExtResource("1_qky66")]
+position = Vector2(165, 50)
+
+[node name="Enemy5" parent="." unique_id=1149189104 instance=ExtResource("1_qky66")]
+position = Vector2(150, 30)
+
+[node name="Enemy6" parent="." unique_id=2140290307 instance=ExtResource("1_qky66")]
+position = Vector2(180, 30)
+
+[node name="Enemy8" parent="." unique_id=1002547870 instance=ExtResource("1_qky66")]
+position = Vector2(30, 70)
+
+[node name="Enemy13" parent="." unique_id=2061493354 instance=ExtResource("1_qky66")]
+position = Vector2(60, 70)
+
+[node name="Enemy14" parent="." unique_id=1305314782 instance=ExtResource("1_qky66")]
+position = Vector2(90, 70)
+
+[node name="Enemy15" parent="." unique_id=271709033 instance=ExtResource("1_qky66")]
+position = Vector2(120, 70)
+
+[node name="Enemy16" parent="." unique_id=152119546 instance=ExtResource("1_qky66")]
+position = Vector2(150, 70)
+
+[node name="Enemy17" parent="." unique_id=1336642425 instance=ExtResource("1_qky66")]
+position = Vector2(180, 70)
+
+[node name="Enemy7" parent="." unique_id=1666299223 instance=ExtResource("1_qky66")]
+position = Vector2(45, 50)
+
+[node name="BlockTimer" type="Timer" parent="." unique_id=211348929]
+wait_time = 0.2
+one_shot = true

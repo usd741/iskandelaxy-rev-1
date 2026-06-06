@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dwhmx3y50fwyk"]
+
+[ext_resource type="Script" uid="uid://cwfryybsjjxkr" path="res://ui/next_stage/next_stage.gd" id="1_s4b4n"]
+
+[node name="NextStage" type="CanvasLayer" unique_id=1606185388]
+script = ExtResource("1_s4b4n")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=688328410]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.16862746, 0.105882354, 0.7647059)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1151375771]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2125159998]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=774896057]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Уровень пройден!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=166691175]
+layout_mode = 2
+text = "Набрано очков: "
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1151539210]
+layout_mode = 2
+text = "Продолжить"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

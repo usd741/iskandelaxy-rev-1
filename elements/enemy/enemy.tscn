@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://chimxleawne0o"]
+
+[ext_resource type="Script" uid="uid://dqig6a2tkmnm7" path="res://elements/enemy/enemy.gd" id="1_j4vrh"]
+[ext_resource type="Texture2D" uid="uid://b0wdbluhk0jnj" path="res://assets/godot-invader-small.png" id="1_ttpur"]
+
+[sub_resource type="Shader" id="Shader_j4vrh"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ek21h"]
+shader = SubResource("Shader_j4vrh")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4vrh"]
+atlas = ExtResource("1_ttpur")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek21h"]
+atlas = ExtResource("1_ttpur")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cx0d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4vrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek21h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjsli"]
+radius = 7.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4vrh"]
+
+[sub_resource type="Gradient" id="Gradient_j4vrh"]
+offsets = PackedFloat32Array(0, 0.44369137)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ek21h"]
+seed = 39
+fractal_lacunarity = 4.005
+fractal_gain = 0.46
+fractal_weighted_strength = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1cx0d"]
+width = 8
+height = 8
+noise = SubResource("FastNoiseLite_ek21h")
+color_ramp = SubResource("Gradient_j4vrh")
+seamless = true
+seamless_blend_skirt = 0.531
+
+[sub_resource type="Curve" id="Curve_ek21h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8612523, 0.5231072), -5.6962824, -5.6962824, 0, 0, Vector2(1, 0), 0.23425114, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l0oir"]
+curve = SubResource("Curve_ek21h")
+
+[sub_resource type="Gradient" id="Gradient_1cx0d"]
+offsets = PackedFloat32Array(0, 0.2667611, 0.3917611, 0.4940338, 0.71562475, 0.8747156)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.95, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0.18039216, 0.5764706, 0.7176471, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l0oir"]
+gradient = SubResource("Gradient_1cx0d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vjsli"]
+lifetime_randomness = 0.85
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 7.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, -10, 0)
+spread = 115.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(0, 80, 0)
+linear_accel_min = -75.0
+linear_accel_max = 19.999998
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.59999996
+color_ramp = SubResource("GradientTexture1D_l0oir")
+alpha_curve = SubResource("CurveTexture_l0oir")
+turbulence_noise_strength = 0.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=354368420 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_j4vrh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=181969280]
+material = SubResource("ShaderMaterial_ek21h")
+sprite_frames = SubResource("SpriteFrames_1cx0d")
+frame_progress = 0.92171705
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630248980]
+shape = SubResource("CircleShape2D_vjsli")
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=107153849]
+target_position = Vector2(-15, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=843688992]
+target_position = Vector2(15, 0)
+
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=172282135]
+material = SubResource("ShaderMaterial_j4vrh")
+emitting = false
+amount = 64
+texture = SubResource("NoiseTexture2D_1cx0d")
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+randomness = 0.25
+trail_lifetime = 0.5
+trail_sections = 16
+trail_section_subdivisions = 8
+process_material = SubResource("ParticleProcessMaterial_vjsli")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_tree_entered"]
+[connection signal="finished" from="DeathParticles" to="." method="_on_death_particles_finished"]

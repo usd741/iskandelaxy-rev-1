@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dmhugwwr8tjrl"]
+
+[ext_resource type="Script" uid="uid://b7dw71jeaqtoa" path="res://game/level_3.gd" id="1_fa7sl"]
+[ext_resource type="PackedScene" uid="uid://cbbeoqqx66eq2" path="res://ui/hud/hud.tscn" id="2_ev3ud"]
+[ext_resource type="Texture2D" uid="uid://d0wceobj21diq" path="res://assets/Space_Stars2.png" id="3_y4br6"]
+[ext_resource type="PackedScene" uid="uid://ceslqqo5r6lpk" path="res://elements/space_ship/space_ship.tscn" id="4_7fc6h"]
+[ext_resource type="PackedScene" uid="uid://bmemety8138ix" path="res://elements/wall/wall.tscn" id="5_a5m5b"]
+[ext_resource type="PackedScene" uid="uid://dsbyhhslbq31x" path="res://elements/enemy_group/enemy_group_level_3.tscn" id="6_fa7sl"]
+[ext_resource type="Script" uid="uid://uo8glh8slhv1" path="res://elements/enemy_group/enemy_group_level_3.gd" id="7_ev3ud"]
+
+[node name="Level_3" type="Node2D" unique_id=685932912]
+script = ExtResource("1_fa7sl")
+
+[node name="HUD" parent="." unique_id=451307600 instance=ExtResource("2_ev3ud")]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=40256613]
+texture_repeat = 2
+position = Vector2(128, 120)
+texture = ExtResource("3_y4br6")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 240)
+
+[node name="SpaceShip" parent="." unique_id=650018351 instance=ExtResource("4_7fc6h")]
+position = Vector2(128, 224)
+
+[node name="Wall" parent="." unique_id=686194986 instance=ExtResource("5_a5m5b")]
+
+[node name="Wall2" parent="." unique_id=1646320094 instance=ExtResource("5_a5m5b")]
+position = Vector2(256, 0)
+
+[node name="Enemy group_level_3" parent="." unique_id=574652516 instance=ExtResource("6_fa7sl")]
+script = ExtResource("7_ev3ud")

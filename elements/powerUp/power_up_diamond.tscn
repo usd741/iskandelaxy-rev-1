@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d0sdd438abkft"]
+
+[ext_resource type="Script" uid="uid://cppsporayl4qd" path="res://elements/powerUp/power_up_base.gd" id="1_bdlsp"]
+[ext_resource type="Texture2D" uid="uid://ci7blhv47xme7" path="res://assets/icons-pow-up.svg" id="2_kqtlu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7na34"]
+radius = 25.0
+height = 50.0
+
+[node name="PowerUp_Diamond" type="CharacterBody2D" unique_id=1158459374]
+scale = Vector2(0.15, 0.15)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_bdlsp")
+points_value = 15
+speed = 125.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=311386563]
+shape = SubResource("CapsuleShape2D_7na34")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1359646407]
+modulate = Color(0.10980392, 1, 1, 1)
+texture = ExtResource("2_kqtlu")
+region_enabled = true
+region_rect = Rect2(146, 152, 62, 62)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=826647723]
+rect = Rect2(-30, -30, 60, 60)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
