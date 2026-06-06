@@ -39,4 +39,9 @@ vertical_alignment = 1
 layout_mode = 2
 text = "Повторить"
 
+[node name="btn_main_menu" type="Button" parent="MarginContainer/VBoxContainer" unique_id=512014360]
+layout_mode = 2
+text = "Выйти в главное меню"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_main_menu" to="." method="_on_btn_main_menu_pressed"]

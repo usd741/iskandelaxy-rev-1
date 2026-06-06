@@ -40,8 +40,13 @@ layout_mode = 2
 text = "Набрано очков: "
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1151539210]
+[node name="btn_next_stage" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1151539210]
 layout_mode = 2
 text = "Продолжить"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="btn_main_menu" type="Button" parent="MarginContainer/VBoxContainer" unique_id=963234068]
+layout_mode = 2
+text = "Сохранить и выйти"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_next_stage" to="." method="_on_btn_next_stage_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_main_menu" to="." method="_on_btn_main_menu_pressed"]

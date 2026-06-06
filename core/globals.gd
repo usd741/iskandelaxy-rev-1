@@ -28,10 +28,14 @@ func change_lives(diff: int):
 
 func get_level_path() -> String:
 	#current_level уже равен следующему уровню благодаря win_level()
-	#Поэтому мы проосто ищем путь для текущего значения current_level
+	#Поэтому мы просто ищем путь для текущего значения current_level
 	if level_scenes.has(current_level):
 		return level_scenes[current_level]
-	return "" #Если такого уровня нет в словаре (например, это был последний уровень)
+	# Если уровня нет (например, current_level = 4) — 
+	# возвращаем последний уровень из словаря
+	var max_level = level_scenes.keys().max()
+	return level_scenes[max_level]
+
 	
 func save_game() -> bool:
 	var config = ConfigFile.new()
@@ -40,11 +44,13 @@ func save_game() -> bool:
 	config.set_value("progress", "max_unlocked_level", max_unlocked_level)
 	config.set_value("progress", "points", points)
 	config.set_value("progress", "lives", lives)
-	
+	print("Game saved")
 	#сохраняем файл на диск
 	var error = config.save("user://savegame.cfg")
 	#если error равен OK (то есть 0), значит всё прошло успешно
 	return error == OK
+	
+
 
 func load_game() -> bool:
 	var config = ConfigFile.new()
@@ -61,7 +67,7 @@ func load_game() -> bool:
 	max_unlocked_level = config.get_value("progress", "max_unlocked_level", 1)
 	points = config.get_value("progress", "points", 0)
 	lives = config.get_value("progress", "lives", 1)
-	
+	print("Game loaded: Level ", current_level, " | Max Unlocked: ", max_unlocked_level, " | Points: ", points, " | Lives: ", lives)
 	#3. Все успешно загружено из файла в переменные Globals
 	return true
 

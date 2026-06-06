@@ -16,19 +16,25 @@ func animate_score():
 		2.0 #длительность в секундах
 	)
 
-func _on_button_pressed():
+func _on_btn_next_stage_pressed() -> void:
 	clear_bullets() #чистим пули
 	clear_power_up() #чистим павер апы
 	get_tree().paused = false
-	
 	var next_path = Globals.get_level_path()
-	
 	Globals.save_game()
-	
 	if next_path != "":
 		get_tree().change_scene_to_file(next_path)
 	else:
 		get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+
+
+func _on_btn_main_menu_pressed() -> void:
+	clear_bullets() #чистим пули
+	clear_power_up() #чистим павер апы
+	get_tree().paused = false
+	Globals.save_game()
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+
 
 func clear_bullets():
 	for bullet in get_tree().get_nodes_in_group("enemy_bullet"):
