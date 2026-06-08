@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var score_label: Label = $MarginContainer/VBoxContainer/ScoreLabel #ссылка на текст очков
 
 func _ready() -> void:
+	AudioManager.play_stage_clear() # Воспроизводим звук очистки уровня при загрузке этого экрана
 	animate_score() #запускаем анимацию очков
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -17,23 +18,23 @@ func animate_score():
 	)
 
 func _on_btn_next_stage_pressed() -> void:
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	clear_bullets() #чистим пули
 	clear_power_up() #чистим павер апы
-	get_tree().paused = false
 	var next_path = Globals.get_level_path()
 	Globals.save_game()
 	if next_path != "":
-		get_tree().change_scene_to_file(next_path)
+		TransitionManager.change_scene_with_fade(next_path)
 	else:
-		get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+		TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")
 
 
 func _on_btn_main_menu_pressed() -> void:
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	clear_bullets() #чистим пули
 	clear_power_up() #чистим павер апы
-	get_tree().paused = false
 	Globals.save_game()
-	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+	TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")
 
 
 func clear_bullets():

@@ -17,17 +17,21 @@ func _ready() -> void:
 
 
 func _on_resume_pressed() -> void: #1. Кнопка "Продолжить"
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	get_tree().paused = false # Снимаем паузу
 	queue_free() # Удаляем меню
 
 func _on_restart_pressed() -> void: #2. Кнопка "Перезапустить уровень"
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	get_tree().paused = false # Снимаем паузу
-	get_tree().reload_current_scene() # Перезагружаем текущую сцену
+	TransitionManager.change_scene_with_fade(get_tree().get_current_scene().get_path()) # Перезагружаем текущий уровень
+	
 
 func _on_main_menu_pressed() -> void: #3. Кнопка "Главное меню"
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	get_tree().paused = false # Снимаем паузу
 	Globals.save_game() # Сохраняем прогресс перед выходом
-	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+	TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")
 
 
 func clear_bullets():

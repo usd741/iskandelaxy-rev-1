@@ -2,21 +2,21 @@ extends CanvasLayer
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	AudioManager.play_game_over() # Воспроизводим звук Game Over при загрузке этого экрана
 
 func _on_button_pressed():
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	clear_bullets() #чистим пули
 	clear_power_up() #чистим павер апы
-	get_tree().paused = false
 	Globals.reset()
-	await get_tree().process_frame
-	get_tree().change_scene_to_file("res://game/game.tscn")
+	TransitionManager.change_scene_with_fade("res://game/game.tscn")
 
 func _on_btn_main_menu_pressed() -> void:
+	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	clear_bullets() #чистим пули
 	clear_power_up() #чистим павер апы
-	get_tree().paused = false
 	Globals.reset()
-	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+	TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")
 
 func clear_bullets():
 	for bullet in get_tree().get_nodes_in_group("enemy_bullet"):
