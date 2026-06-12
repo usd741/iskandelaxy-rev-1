@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://w21ja1l1npf4"
+path="res://.godot/imported/Ibra - Tin Meteor_1.mp3-624d36e590815447350600f6b9463c1d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Ibra - Tin Meteor_1.mp3"
+dest_files=["res://.godot/imported/Ibra - Tin Meteor_1.mp3-624d36e590815447350600f6b9463c1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -13,22 +13,23 @@ func _ready() -> void:
 	btn_resume.pressed.connect(_on_resume_pressed)
 	btn_restart.pressed.connect(_on_restart_pressed)
 	btn_main_menu.pressed.connect(_on_main_menu_pressed)
+	AudioManager.play_pause_in() # Воспроизводим звук паузы при открытии меню
 
 
 
 func _on_resume_pressed() -> void: #1. Кнопка "Продолжить"
-	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
+	AudioManager.play_pause_out() # Воспроизводим звук снятия паузы
 	get_tree().paused = false # Снимаем паузу
 	queue_free() # Удаляем меню
 
 func _on_restart_pressed() -> void: #2. Кнопка "Перезапустить уровень"
-	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
+	AudioManager.play_pause_out() # Воспроизводим звук снятия паузы
 	get_tree().paused = false # Снимаем паузу
 	TransitionManager.change_scene_with_fade(get_tree().get_current_scene().get_path()) # Перезагружаем текущий уровень
 	
 
 func _on_main_menu_pressed() -> void: #3. Кнопка "Главное меню"
-	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
+	AudioManager.play_pause_out() # Воспроизводим звук снятия паузы
 	get_tree().paused = false # Снимаем паузу
 	Globals.save_game() # Сохраняем прогресс перед выходом
 	TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")

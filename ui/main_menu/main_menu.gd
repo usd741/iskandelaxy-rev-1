@@ -6,6 +6,7 @@ extends Control
 func _ready() -> void:
 	check_saved_game()
 	button_scores.disabled = true
+	AudioManager.play_music(AudioManager.music_menu) #Запускаем музыку для меню
 
 	# --- НАЧАЛО НОВОГО КОДА ДЛЯ ЗВУКА ---
 	# Получаем ссылку на контейнер с кнопками
@@ -25,7 +26,6 @@ func check_saved_game():
 
 func _on_button_new_game_pressed():
 	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
-	await get_tree().create_timer(0.15).timeout # Небольшая задержка, чтобы звук успел сыграть
 	Globals.reset()
 	TransitionManager.change_scene_with_fade("res://game/game.tscn")
 

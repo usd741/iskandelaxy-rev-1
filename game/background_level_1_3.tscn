@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://l8863w8tf50j"]
+
+[ext_resource type="Texture2D" uid="uid://d0wceobj21diq" path="res://assets/Space_Stars2.png" id="1_e4ir7"]
+[ext_resource type="Script" uid="uid://bx2qtfunci145" path="res://game/background_level_1_3.gd" id="1_h2afi"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" unique_id=1902122083]
+script = ExtResource("1_h2afi")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=848440138]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(0, 240)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=1305038570]
+texture_repeat = 2
+position = Vector2(128, 120)
+texture = ExtResource("1_e4ir7")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 240)

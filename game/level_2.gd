@@ -13,6 +13,7 @@ func _ready():
 	Events.lives_changed.connect(_on_lives_changed) #Подписываемся на изменение жизней
 	check_game_over()
 	Globals.current_level =2
+	AudioManager.play_music(AudioManager.music_level_4_6) #Запускаем музыку для уровня 4-6
 	
 
 func _unhandled_input(event):

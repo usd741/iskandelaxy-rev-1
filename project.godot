@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Events="*uid://cg6k774kmvx43"
 Globals="*uid://cgyssju56qd6f"
+AudioManager="*uid://eomec2vgwd4a"
+TransitionManager="*uid://wls230dsmy0g"
 
 [display]
 
