@@ -13,14 +13,13 @@ script = ExtResource("1_dakft")
 [node name="HUD" parent="." unique_id=451307600 instance=ExtResource("1_dxrkv")]
 
 [node name="Background" parent="." unique_id=1067266930 instance=ExtResource("3_dakft")]
-position = Vector2(128, 120)
 
 [node name="SpaceShip" parent="." unique_id=650018351 instance=ExtResource("2_vasa2")]
-position = Vector2(128, 224)
+position = Vector2(320, 420)
 
 [node name="Wall" parent="." unique_id=686194986 instance=ExtResource("3_h7iqs")]
 
 [node name="Wall2" parent="." unique_id=1646320094 instance=ExtResource("3_h7iqs")]
-position = Vector2(256, 0)
+position = Vector2(640, 0)
 
 [node name="Enemy group" parent="." unique_id=574652516 instance=ExtResource("4_4fuuu")]

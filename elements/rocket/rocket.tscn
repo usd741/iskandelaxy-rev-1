@@ -1,33 +1,33 @@
 [gd_scene format=3 uid="uid://bgk5rlebeexlk"]
 
-[ext_resource type="Texture2D" uid="uid://gqg6i2ttwudd" path="res://assets/rocket.png" id="1_7qe8a"]
 [ext_resource type="Script" uid="uid://g370u8ctjjhk" path="res://elements/rocket/rocket.gd" id="1_e8x5b"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8x5b"]
-atlas = ExtResource("1_7qe8a")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uj64q"]
-atlas = ExtResource("1_7qe8a")
-region = Rect2(32, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://b2nglqsqhjuqi" path="res://assets/beams.png" id="2_e8x5b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j62tl"]
-atlas = ExtResource("1_7qe8a")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("2_e8x5b")
+region = Rect2(112, 0, 28, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj64q"]
+atlas = ExtResource("2_e8x5b")
+region = Rect2(112, 31, 28, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8x5b"]
+atlas = ExtResource("2_e8x5b")
+region = Rect2(112, 62, 28, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oi7oa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e8x5b")
+"texture": SubResource("AtlasTexture_j62tl")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uj64q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j62tl")
+"texture": SubResource("AtlasTexture_e8x5b")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -44,13 +44,15 @@ collision_mask = 4
 script = ExtResource("1_e8x5b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1385510673]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_oi7oa")
-frame_progress = 0.5325686
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1766211485]
 shape = SubResource("CapsuleShape2D_7qe8a")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=514814935]
-rect = Rect2(-3, -6, 6, 18)
+rect = Rect2(-3, -6, 6, 12)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

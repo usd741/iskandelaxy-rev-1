@@ -8,11 +8,11 @@ script = ExtResource("1_h2afi")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=848440138]
 motion_scale = Vector2(0, 1)
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(0, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=1305038570]
 texture_repeat = 2
-position = Vector2(128, 120)
+position = Vector2(320, 240)
 texture = ExtResource("1_e4ir7")
 region_enabled = true
-region_rect = Rect2(0, 0, 256, 240)
+region_rect = Rect2(0, 0, 640, 480)

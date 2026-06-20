@@ -114,7 +114,7 @@ func _create_pool_game(pool: Array, name_prefix: String):
 		#Сохраняем ссылку на плеер в массиве, чтобы потом искать свободный
 		pool.append(player)
 	
-func _play_random_from_pool(pool: Array, sounds_array: Array[AudioStream]):
+func _play_random_from_pool(pool: Array, sounds_array: Array[AudioStream], min_pitch: float = 1.0, max_pitch: float = 1.0):
 	if sounds_array.is_empty():
 		return # Если массив звуков пуст, ничего не делаем
 
@@ -131,6 +131,10 @@ func _play_random_from_pool(pool: Array, sounds_array: Array[AudioStream]):
 	
 	#Назначаем случайный звук из массива и воспроизводим
 	available_player.stream = sounds_array.pick_random()
+
+	# --- ДОБАВЛЯЕМ СЛУЧАЙНУЮ ВАРИАЦИЮ ВЫСОТЫ ТОНА ---
+	# Это делает каждый звук немного выше или ниже, создавая разнообразие
+	available_player.pitch_scale = randf_range(min_pitch, max_pitch) # Можно настроить диапазон по вкусу
 	available_player.play()
 
 func _play_from_pool(pool: Array):
@@ -194,12 +198,16 @@ func play_pause_out():
 	_play_from_pool(pause_out_sound_players)
 	
 func play_player_shoot():
-	_play_random_from_pool(player_shoot_sound_players, player_shoot_sounds)
+	# Выстрелы игрока — лазерные, короткие. 
+	# Небольшая вариация, чтобы не терялась "чистота" звука
+	_play_random_from_pool(player_shoot_sound_players, player_shoot_sounds, 0.5, 1.5)
 
 func play_enemy_tier1_shoot():
-	_play_random_from_pool(enemy_tier1_shoot_sound_players, enemy_tier1_shoot_sounds)
+	# Выстрелы врага — пушечные, более "тяжелые".
+	# Чуть более широкий диапазон для разнообразия
+	_play_random_from_pool(enemy_tier1_shoot_sound_players, enemy_tier1_shoot_sounds, 0.5, 1.5)
 
 func play_regular_explosion():
-	_play_random_from_pool(regular_explosion_sound_players, regular_explosion_sounds)
-
-
+	# Взрывы — самые "громкие" и эмоциональные события.
+	# Широкий диапазон, чтобы каждый взрыв звучал уникально
+	_play_random_from_pool(regular_explosion_sound_players, regular_explosion_sounds, 0.5, 1.5)

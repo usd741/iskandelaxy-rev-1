@@ -16,12 +16,12 @@ script = ExtResource("1_fa7sl")
 [node name="ParallaxBackground" parent="." unique_id=1902122083 instance=ExtResource("3_ev3ud")]
 
 [node name="SpaceShip" parent="." unique_id=650018351 instance=ExtResource("4_7fc6h")]
-position = Vector2(128, 224)
+position = Vector2(320, 420)
 
 [node name="Wall" parent="." unique_id=686194986 instance=ExtResource("5_a5m5b")]
 
 [node name="Wall2" parent="." unique_id=1646320094 instance=ExtResource("5_a5m5b")]
-position = Vector2(256, 0)
+position = Vector2(640, 0)
 
 [node name="Enemy group_level_3" parent="." unique_id=574652516 instance=ExtResource("6_fa7sl")]
 script = ExtResource("7_ev3ud")

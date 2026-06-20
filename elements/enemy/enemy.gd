@@ -28,6 +28,7 @@ func _physics_process(_delta):
 
 
 func destroy():
+	AudioManager.play_regular_explosion()
 	set_physics_process(false)
 	set_process(false)
 	$AnimatedSprite2D.visible = false
@@ -72,6 +73,7 @@ func spawn_powerup():
 
 
 func shot():
+	AudioManager.play_enemy_tier1_shoot()
 	print("SHOT")
 	var bullet = BULLET_SCENE.instantiate()
 	bullet.global_position += global_position + Vector2(0, 10.0)

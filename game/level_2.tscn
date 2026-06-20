@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8eyhc8o7x5yu" path="res://game/level_2.gd" id="1_vb3c5"]
 [ext_resource type="PackedScene" uid="uid://cbbeoqqx66eq2" path="res://ui/hud/hud.tscn" id="2_iam34"]
-[ext_resource type="Texture2D" uid="uid://d0wceobj21diq" path="res://assets/Space_Stars2.png" id="3_m13k0"]
+[ext_resource type="PackedScene" uid="uid://l8863w8tf50j" path="res://game/background_level_1_3.tscn" id="3_iam34"]
 [ext_resource type="PackedScene" uid="uid://ceslqqo5r6lpk" path="res://elements/space_ship/space_ship.tscn" id="4_bb515"]
 [ext_resource type="PackedScene" uid="uid://bmemety8138ix" path="res://elements/wall/wall.tscn" id="5_htpge"]
 [ext_resource type="PackedScene" uid="uid://bcnx6hcwsamnr" path="res://elements/enemy_group/enemy_group_level_2.tscn" id="6_iam34"]
@@ -13,20 +13,15 @@ script = ExtResource("1_vb3c5")
 
 [node name="HUD" parent="." unique_id=451307600 instance=ExtResource("2_iam34")]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=40256613]
-texture_repeat = 2
-position = Vector2(128, 120)
-texture = ExtResource("3_m13k0")
-region_enabled = true
-region_rect = Rect2(0, 0, 256, 240)
+[node name="ParallaxBackground" parent="." unique_id=1902122083 instance=ExtResource("3_iam34")]
 
 [node name="SpaceShip" parent="." unique_id=650018351 instance=ExtResource("4_bb515")]
-position = Vector2(128, 224)
+position = Vector2(320, 420)
 
 [node name="Wall" parent="." unique_id=686194986 instance=ExtResource("5_htpge")]
 
 [node name="Wall2" parent="." unique_id=1646320094 instance=ExtResource("5_htpge")]
-position = Vector2(256, 0)
+position = Vector2(640, 0)
 
 [node name="Enemy group_level_2" parent="." unique_id=574652516 instance=ExtResource("6_iam34")]
 script = ExtResource("7_iam34")

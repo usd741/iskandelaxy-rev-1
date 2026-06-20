@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
+@onready var player_laser_animation = $AnimatedSprite2D
 
 const SPEED = 200.0
+
+func _ready() -> void:
+	player_laser_animation.play("default") # Запускаем анимацию ОДИН РАЗ при создании пули
+
 
 func _physics_process(delta: float):
 	var collision = move_and_collide(Vector2.UP * SPEED * delta)
