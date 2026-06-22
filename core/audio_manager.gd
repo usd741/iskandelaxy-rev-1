@@ -9,12 +9,17 @@ extends Node
 @onready var pause_in_sound: AudioStream = preload("res://assets/audio/ui/sfx_sounds_pause7_in.wav")
 @onready var pause_out_sound: AudioStream = preload("res://assets/audio/ui/sfx_sounds_pause7_out.wav")
 
+# Монеты
+@onready var base_coin_sound: Array[AudioStream] = [preload("res://assets/audio/sfx/sfx_sounds_fanfare3.wav")]
+@onready var silver_coin_sound: Array[AudioStream] =[preload("res://assets/audio/sfx/sfx_sounds_fanfare2.wav")]
+@onready var gold_coin_sound: Array[AudioStream] = [preload("res://assets/audio/sfx/sfx_sounds_fanfare1.wav")]
+
 # --- НОВЫЕ ЗВУКИ: ВЫСТРЕЛЫ И ВЗРЫВЫ ---
 # Массивы звуков для рандомизации (чтобы не было одинаковых звуков подряд)
 @onready var player_shoot_sounds: Array[AudioStream] = [
 	preload("res://assets/audio/sfx/sfx_wpn_laser5.wav"),
 	preload("res://assets/audio/sfx/sfx_wpn_laser7.wav"),
-	preload("res://assets/audio/sfx/sfx_wpn_laser11.wav")]
+	preload("res://assets/audio/sfx/sfx_wpn_laser6.wav")]
 
 @onready var enemy_tier1_shoot_sounds: Array[AudioStream] = [
 	preload("res://assets/audio/sfx/sfx_wpn_cannon6.wav"),]
@@ -25,6 +30,11 @@ extends Node
 	preload("res://assets/audio/sfx/sfx_exp_short_soft1.wav"),
 	preload("res://assets/audio/sfx/sfx_exp_short_soft5.wav"),
 	preload("res://assets/audio/sfx/sfx_exp_short_soft9.wav"),]
+
+# SFX Звуки
+@onready var empty_shot_sounds: Array[AudioStream] = [
+	preload("res://assets/audio/sfx/small_metal_clasp.mp3"),
+	preload("res://assets/audio/sfx/outofammo.wav"),]
 
 #- - - Музыка - - -
 @onready var music_menu: AudioStream = preload("res://assets/audio/music/Ibra - Laser Alphabet_2.mp3")
@@ -50,6 +60,10 @@ var pause_out_sound_players: Array[AudioStreamPlayer] = []
 var player_shoot_sound_players: Array[AudioStreamPlayer] = []
 var enemy_tier1_shoot_sound_players: Array[AudioStreamPlayer] = []
 var regular_explosion_sound_players: Array[AudioStreamPlayer] = []
+var empty_shot_sound_players: Array[AudioStreamPlayer] = []
+var base_coin_players: Array[AudioStreamPlayer] = []
+var silver_coin_players: Array[AudioStreamPlayer] = []
+var gold_coin_players: Array[AudioStreamPlayer] = []
 
 var active_music_player: AudioStreamPlayer 
 
@@ -72,6 +86,10 @@ func _ready():
 	_create_pool_game(player_shoot_sound_players, "player_shoot_sound_player")
 	_create_pool_game(enemy_tier1_shoot_sound_players, "enemy_tier1_shoot_sound_player")
 	_create_pool_game(regular_explosion_sound_players, "regular_explosion_sound_player")
+	_create_pool_game(empty_shot_sound_players, "empty_shot_sound_player")
+	_create_pool_game(base_coin_players, "base_coin_player")
+	_create_pool_game(silver_coin_players, "silver_coin_player")
+	_create_pool_game(gold_coin_players, "gold_coin_player")
 
 	#Инициализируем пулы звуковых игроков для музыки
 	_setup_music_system()
@@ -128,13 +146,14 @@ func _play_random_from_pool(pool: Array, sounds_array: Array[AudioStream], min_p
 	#Если все заняты, берем первый
 	if available_player == null:
 		available_player = pool[0]
-	
+		
 	#Назначаем случайный звук из массива и воспроизводим
 	available_player.stream = sounds_array.pick_random()
 
 	# --- ДОБАВЛЯЕМ СЛУЧАЙНУЮ ВАРИАЦИЮ ВЫСОТЫ ТОНА ---
 	# Это делает каждый звук немного выше или ниже, создавая разнообразие
 	available_player.pitch_scale = randf_range(min_pitch, max_pitch) # Можно настроить диапазон по вкусу
+	available_player.bus = "SFX"
 	available_player.play()
 
 func _play_from_pool(pool: Array):
@@ -147,6 +166,7 @@ func _play_from_pool(pool: Array):
 			return
 	#Если дошли до этой строчки - все плееры заняты
 	#Перезапускаем первый (он уже почти закончил играть)
+	pool[0].bus = "SFX"
 	pool[0].play()
 
 
@@ -202,6 +222,9 @@ func play_player_shoot():
 	# Небольшая вариация, чтобы не терялась "чистота" звука
 	_play_random_from_pool(player_shoot_sound_players, player_shoot_sounds, 0.5, 1.5)
 
+func play_player_empty_shot():
+	_play_random_from_pool(empty_shot_sound_players, empty_shot_sounds, 0.5, 1.0)
+
 func play_enemy_tier1_shoot():
 	# Выстрелы врага — пушечные, более "тяжелые".
 	# Чуть более широкий диапазон для разнообразия
@@ -211,3 +234,6 @@ func play_regular_explosion():
 	# Взрывы — самые "громкие" и эмоциональные события.
 	# Широкий диапазон, чтобы каждый взрыв звучал уникально
 	_play_random_from_pool(regular_explosion_sound_players, regular_explosion_sounds, 0.5, 1.5)
+
+func play_base_coin():
+	_play_random_from_pool(base_coin_players, base_coin_sound, 0.6, 1.0)

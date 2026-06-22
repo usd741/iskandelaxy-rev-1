@@ -16,6 +16,11 @@ const POINT_DIAMOND_SCENE = preload("res://elements/powerUp/power_up_diamond.tsc
 @onready var raycast_right := $RayCastRight
 @onready var death_particle: GPUParticles2D = $DeathParticles
 
+#---Базовые характеристики---
+@export var max_health: int = 1
+@export var bullet_speed: float = 150.0
+@export var points_reward: int = 10
+
 #-------------------------#
 
 func _ready():
@@ -34,7 +39,7 @@ func destroy():
 	$AnimatedSprite2D.visible = false
 	$CollisionShape2D.set_deferred("disabled", true)
 	
-	if randf() <0.3:
+	if randf() <0.25:
 		spawn_powerup()
 	else: #Есди бонус не выпал можно создать маленькое очко (по желанию)
 		var point_single = POINT_BRONZE_SCENE.instantiate()

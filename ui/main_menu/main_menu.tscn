@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfpm81jutkdes"]
 
 [ext_resource type="Script" uid="uid://dwkiqo1ih6vn3" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+[ext_resource type="Theme" uid="uid://cnhkwmohvf8s6" path="res://ui/global_theme.tres" id="2_mu8pm"]
 
 [node name="MainMenu" type="Control" unique_id=772982793]
 layout_mode = 3
@@ -34,21 +35,30 @@ alignment = 1
 
 [node name="Label_GameName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1110697769]
 layout_mode = 2
+theme = ExtResource("2_mu8pm")
+theme_override_font_sizes/font_size = 32
 text = "Исканделакси"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=259913827]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
 [node name="Button_NewGame" type="Button" parent="MarginContainer/VBoxContainer" unique_id=172463025]
 layout_mode = 2
+theme = ExtResource("2_mu8pm")
 text = "Новая игра"
 
 [node name="Button_Continue" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1370694748]
 layout_mode = 2
+theme = ExtResource("2_mu8pm")
 disabled = true
 text = "Продолжить"
 
 [node name="Button_Scores" type="Button" parent="MarginContainer/VBoxContainer" unique_id=844027445]
 layout_mode = 2
+theme = ExtResource("2_mu8pm")
 disabled = true
 text = "Лучшая игра"
 

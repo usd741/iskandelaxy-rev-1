@@ -6,4 +6,4 @@ func _ready():
 	update_score(Globals.points) #Показываем текущие очки
 
 func update_score(points: int):
-	text = "Очков набрано: " + str(points)
+	text = str(points)

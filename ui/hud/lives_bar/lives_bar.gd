@@ -1,23 +1,21 @@
 extends HBoxContainer
 
 var RECT_SCENE = preload("res://ui/hud/lives_bar/live_rect.tscn")
+@onready var life_icon: TextureRect = $Control/life_icon
+@onready var life_label: Label = $Control/life_label
+
 
 func _ready():
+	#Подписываемся на сигнал изменения жизней
 	Events.lives_changed.connect(update_lives)
+	#Инициализируем отображение при старте
 	update_lives(Globals.lives)	
 
 
 func update_lives(lives: int):
-	if lives <0:
-		return
-	var diff = lives - get_child_count()
-	for i in range(abs(diff)):
-		add_live() if diff > 0 else  remove_live()
-
-
-func add_live():
-	add_child(RECT_SCENE.instantiate())
-
-
-func remove_live():
-	get_child(0).queue_free()
+	#Обновляем текст: "x3", "x2", "x1" и т.д.
+	life_label.text = "x" + str(lives)
+	if lives <= 1:
+		life_icon.modulate = Color(1, 0.5, 0.5, 0.5) #Полупрозрачно
+	else:
+		life_icon.modulate = Color(1, 1, 1, 1.0) #Полная видимость

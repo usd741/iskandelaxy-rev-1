@@ -4,4 +4,4 @@
 
 [node name="HUD" type="CanvasLayer" unique_id=451307600]
 
-[node name="Score" parent="." unique_id=1611165170 instance=ExtResource("2_4d6w6")]
+[node name="Score_health_lives" parent="." unique_id=1611165170 instance=ExtResource("2_4d6w6")]

@@ -1,7 +1,23 @@
 [gd_scene format=3 uid="uid://blb5nbvnef4g2"]
 
+[ext_resource type="Texture2D" uid="uid://cwrrc3vyklp7y" path="res://assets/ui/04.png" id="1_fac04"]
 [ext_resource type="Script" uid="uid://cykruievkw0b5" path="res://ui/hud/score_label/score.gd" id="1_krf5k"]
 [ext_resource type="PackedScene" uid="uid://ce2eci14l05x4" path="res://ui/hud/lives_bar/lives_bar.tscn" id="1_yfi4w"]
+[ext_resource type="Theme" uid="uid://cnhkwmohvf8s6" path="res://ui/global_theme.tres" id="2_bcbnc"]
+[ext_resource type="Texture2D" uid="uid://d3vknb0g4tv4s" path="res://assets/ui/05.png" id="4_2vlqv"]
+[ext_resource type="Script" uid="uid://cywtnb7uyosuk" path="res://ui/hud/lives_bar/health_bar.gd" id="5_fac04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcbnc"]
+atlas = ExtResource("1_fac04")
+region = Rect2(6, 131, 38, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fac04"]
+atlas = ExtResource("4_2vlqv")
+region = Rect2(341, 2, 37, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs5py"]
+atlas = ExtResource("4_2vlqv")
+region = Rect2(5, 2, 37, 14)
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1611165170]
 anchors_preset = 15
@@ -13,22 +29,93 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
+metadata/_edit_horizontal_guides_ = [442.0, 412.0, 472.0]
+metadata/_edit_vertical_guides_ = [70.0, 10.0, 630.0, 575.0, 518.0]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1106959610]
 layout_mode = 2
 
 [node name="Points&Lives" type="HBoxContainer" parent="VBoxContainer" unique_id=57885506]
 layout_mode = 2
+size_flags_vertical = 10
 
-[node name="Points" type="Label" parent="VBoxContainer/Points&Lives" unique_id=461592945]
+[node name="Control_points" type="Control" parent="VBoxContainer/Points&Lives" unique_id=399164798]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Points&Lives/Control_points" unique_id=1079359249]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 55.0
+offset_bottom = 14.0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="PointsBackground" type="TextureRect" parent="VBoxContainer/Points&Lives/Control_points" unique_id=1978622633]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 24.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_bcbnc")
+expand_mode = 2
+
+[node name="Points" type="Label" parent="VBoxContainer/Points&Lives/Control_points" unique_id=461592945]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.999999
+offset_right = 15.000004
+offset_bottom = 12.0
+grow_vertical = 0
+theme = ExtResource("2_bcbnc")
+theme_override_font_sizes/font_size = 12
 text = "0"
 script = ExtResource("1_krf5k")
 
-[node name="Control" type="Control" parent="VBoxContainer/Points&Lives" unique_id=1461255657]
+[node name="Control_separator" type="Control" parent="VBoxContainer/Points&Lives" unique_id=1461255657]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LivesBar" parent="VBoxContainer/Points&Lives" unique_id=568435807 instance=ExtResource("1_yfi4w")]
+[node name="Control_lives" type="Control" parent="VBoxContainer/Points&Lives" unique_id=1727804301]
 layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Points&Lives/Control_lives" unique_id=581747609]
+layout_mode = 0
+offset_left = -55.0
+offset_top = -6.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="HealthBar" type="TextureProgressBar" parent="VBoxContainer/Points&Lives/Control_lives" unique_id=1674853032]
+layout_mode = 1
+offset_left = -112.0
+offset_top = -6.0
+offset_right = -55.0
+offset_bottom = 24.0
+max_value = 3.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_fac04")
+texture_progress = SubResource("AtlasTexture_hs5py")
+script = ExtResource("5_fac04")
+
+[node name="LivesBar" parent="VBoxContainer/Points&Lives/Control_lives" unique_id=568435807 instance=ExtResource("1_yfi4w")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=1367300234]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05

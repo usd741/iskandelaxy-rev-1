@@ -15,6 +15,10 @@ run/main_scene="uid://bfpm81jutkdes"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bdo1r27v6mkpw"
+
 [autoload]
 
 Events="*uid://cg6k774kmvx43"
@@ -28,6 +32,8 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/size/mode=3
 window/size/resizable=false
+window/size/borderless=true
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 
@@ -37,6 +43,10 @@ enemy_group=""
 enemy=""
 enemy_bullet=""
 power_up=""
+
+[gui]
+
+theme/custom="uid://cnhkwmohvf8s6"
 
 [input]
 

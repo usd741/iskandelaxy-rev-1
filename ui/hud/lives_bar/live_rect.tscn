@@ -7,7 +7,7 @@ atlas = ExtResource("1_vg27x")
 region = Rect2(9, 10, 30, 28)
 
 [node name="LiveRect" type="TextureRect" unique_id=1793110911]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(12, 12)
 texture = SubResource("AtlasTexture_dxrkv")
 expand_mode = 1
 stretch_mode = 5

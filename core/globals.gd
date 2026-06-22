@@ -10,11 +10,11 @@ var level_scenes = {
 }
 
 var points: int = 0
-var lives: int = 1
+var lives: int = 3
 
 func reset():
 	points = 0
-	lives = 1
+	lives = 3
 	current_level = 1
 	max_unlocked_level = 1
 
