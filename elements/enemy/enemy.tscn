@@ -1,52 +1,91 @@
 [gd_scene format=3 uid="uid://chimxleawne0o"]
 
 [ext_resource type="Script" uid="uid://dqig6a2tkmnm7" path="res://elements/enemy/enemy.gd" id="1_j4vrh"]
-[ext_resource type="Texture2D" uid="uid://b0wdbluhk0jnj" path="res://assets/godot-invader-small.png" id="1_ttpur"]
+[ext_resource type="PackedScene" uid="uid://dfbim4mccfgv4" path="res://elements/enemy_bullet/enemy_bullet.tscn" id="2_ek21h"]
+[ext_resource type="PackedScene" uid="uid://tkq4y3m8tuny" path="res://elements/powerUp/power_up_bronze.tscn" id="3_1cx0d"]
+[ext_resource type="Texture2D" uid="uid://bfajdbwdhen0x" path="res://elements/enemy/Kla'ed - Scout - Engine.png" id="4_vjsli"]
+[ext_resource type="Texture2D" uid="uid://d0g8d4iy3vj0u" path="res://elements/enemy/Kla'ed - Scout - Base.png" id="5_24dpr"]
 
-[sub_resource type="Shader" id="Shader_j4vrh"]
-code = "shader_type canvas_item;
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmxbo"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(0, 0, 64, 64)
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlc73"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(64, 0, 64, 64)
 
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_khahs"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(128, 0, 64, 64)
 
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r688"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ek21h"]
-shader = SubResource("Shader_j4vrh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mys7b"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4vrh"]
-atlas = ExtResource("1_ttpur")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_16sbx"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ek21h"]
-atlas = ExtResource("1_ttpur")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmycr"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls5uu"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe7fu"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76dai"]
+atlas = ExtResource("4_vjsli")
+region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1cx0d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j4vrh")
+"texture": SubResource("AtlasTexture_bmxbo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ek21h")
+"texture": SubResource("AtlasTexture_wlc73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khahs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r688")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mys7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16sbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmycr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls5uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe7fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76dai")
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjsli"]
-radius = 7.0
+radius = 12.0415945
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4vrh"]
 
@@ -113,20 +152,30 @@ turbulence_noise_strength = 0.0
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_j4vrh")
+points_reward = 1
+bullet_scene = ExtResource("2_ek21h")
+fire_rate = 0.05
+powerup_scene = Array[PackedScene]([ExtResource("3_1cx0d")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=181969280]
-material = SubResource("ShaderMaterial_ek21h")
+position = Vector2(0, -29.165)
+scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_1cx0d")
-frame_progress = 0.92171705
+autoplay = "default"
+frame_progress = 0.33528915
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1561738896]
+texture = ExtResource("5_24dpr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630248980]
 shape = SubResource("CircleShape2D_vjsli")
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=107153849]
-target_position = Vector2(-15, 0)
+target_position = Vector2(-20, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=843688992]
-target_position = Vector2(15, 0)
+target_position = Vector2(20, 0)
+collide_with_areas = true
 
 [node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=172282135]
 material = SubResource("ShaderMaterial_j4vrh")

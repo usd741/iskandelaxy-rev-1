@@ -12,9 +12,9 @@ func _physics_process(delta: float):
 	var collision = move_and_collide(Vector2.UP * SPEED * delta)
 	if collision:
 		var collider = collision.get_collider()
-		if collider.has_method("destroy"):
-			collider.destroy()
-			print("Kill")
+		if collider.has_method("take_damage"):
+			collider.take_damage(1)
+			print("damage")
 			queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

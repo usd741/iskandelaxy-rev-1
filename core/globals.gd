@@ -20,7 +20,8 @@ func reset():
 
 func change_points(diff: int):
 	points += diff
-	Events.points_changed.emit(points)
+	Events.points_changed.emit(points) #Общее количество очков (основной счет)
+	Events.points_got.emit(diff) #Получено очков за раз
 
 func change_lives(diff: int):
 	lives += diff

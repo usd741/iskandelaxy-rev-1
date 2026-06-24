@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ccutb4e0yro1y"]
+
+[ext_resource type="Script" uid="uid://5x7canneccln" path="res://game/world_map.gd" id="1_2fbun"]
+
+[node name="WorldMap" type="Control" unique_id=1586130662]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fbun")
+
+[node name="Background" type="ColorRect" parent="." unique_id=701333009]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0.168, 0.19440001, 0.24, 1)
+
+[node name="LevelNodes" type="Control" parent="." unique_id=1953787632]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="Level1Node" type="ColorRect" parent="LevelNodes" unique_id=1357763070]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 55.0
+offset_right = 99.0
+offset_bottom = 95.0
+
+[node name="Level2Node" type="ColorRect" parent="LevelNodes" unique_id=1072109064]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 171.0
+offset_right = 140.0
+offset_bottom = 211.0
+
+[node name="Level3Node" type="ColorRect" parent="LevelNodes" unique_id=50376875]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 314.0
+offset_right = 114.0
+offset_bottom = 354.0
+
+[node name="PlayerMarker" type="ColorRect" parent="." unique_id=1344065373]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 67.0
+offset_right = 87.0
+offset_bottom = 83.0
+color = Color(0.3830269, 0.6153554, 0.85082346, 1)
+
+[node name="PathLine" type="Line2D" parent="." unique_id=1240311272]
+points = PackedVector2Array(80, 75, 120, 192, 95, 335)
+default_color = Color(1, 0.65, 0.65, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115135352]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Space_Top" type="Control" parent="VBoxContainer" unique_id=1186150227]
+custom_minimum_size = Vector2(0, 399.27)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=380849513]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Перейти на следующий уровень"
+
+[node name="Space_Bottom" type="Control" parent="VBoxContainer" unique_id=1712187291]
+custom_minimum_size = Vector2(0, 52.86)
+layout_mode = 2

@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ceslqqo5r6lpk" path="res://elements/space_ship/space_ship.tscn" id="4_bb515"]
 [ext_resource type="PackedScene" uid="uid://bmemety8138ix" path="res://elements/wall/wall.tscn" id="5_htpge"]
 [ext_resource type="PackedScene" uid="uid://bcnx6hcwsamnr" path="res://elements/enemy_group/enemy_group_level_2.tscn" id="6_iam34"]
-[ext_resource type="Script" uid="uid://bjiaqp150l1qa" path="res://elements/enemy_group/enemy_group_level_2.gd" id="7_iam34"]
 
-[node name="Level_2" type="Node2D" unique_id=685932912]
+[node name="Level" type="Node2D" unique_id=685932912]
 script = ExtResource("1_vb3c5")
 
 [node name="HUD" parent="." unique_id=451307600 instance=ExtResource("2_iam34")]
@@ -24,4 +23,3 @@ position = Vector2(320, 420)
 position = Vector2(640, 0)
 
 [node name="Enemy group_level_2" parent="." unique_id=574652516 instance=ExtResource("6_iam34")]
-script = ExtResource("7_iam34")

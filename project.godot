@@ -43,6 +43,7 @@ enemy_group=""
 enemy=""
 enemy_bullet=""
 power_up=""
+enemy_tier_2=""
 
 [gui]
 
