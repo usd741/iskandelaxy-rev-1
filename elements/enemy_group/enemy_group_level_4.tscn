@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://pnwaikj63qdp"]
+
+[ext_resource type="Script" uid="uid://bvmcju0gbyks3" path="res://elements/enemy_group/enemy_group.gd" id="1_dsy0p"]
+[ext_resource type="PackedScene" uid="uid://chimxleawne0o" path="res://elements/enemy/enemy.tscn" id="2_kt7ms"]
+[ext_resource type="Texture2D" uid="uid://gksn8p2rxb8m" path="res://elements/enemy/Kla'ed - Bomber - Base.png" id="3_jhiqx"]
+
+[node name="Enemy group_level_4" type="Node2D" unique_id=574652516 groups=["enemy_group"]]
+script = ExtResource("1_dsy0p")
+
+[node name="Enemy1" parent="." unique_id=354368420 instance=ExtResource("2_kt7ms")]
+position = Vector2(55, 30)
+
+[node name="Enemy6" parent="." unique_id=999893829 instance=ExtResource("2_kt7ms")]
+position = Vector2(95, 30)
+fire_rate = 2.0
+
+[node name="Enemy_tier2_1" parent="." unique_id=702530719 instance=ExtResource("2_kt7ms")]
+position = Vector2(125, 30)
+max_health = 5
+points_reward = 8
+fire_rate = 2.0
+sprite_texture = ExtResource("3_jhiqx")
+
+[node name="Enemy12" parent="." unique_id=706594731 instance=ExtResource("2_kt7ms")]
+position = Vector2(155, 30)
+fire_rate = 2.0
+
+[node name="Enemy3" parent="." unique_id=1149189104 instance=ExtResource("2_kt7ms")]
+position = Vector2(193, 30)
+fire_rate = 2.0
+
+[node name="Enemy4" parent="." unique_id=1666299223 instance=ExtResource("2_kt7ms")]
+position = Vector2(80, 75)
+fire_rate = 2.0
+
+[node name="Enemy_tier2_2" parent="." unique_id=1888360416 groups=["enemy_tier_2"] instance=ExtResource("2_kt7ms")]
+position = Vector2(125, 75)
+max_health = 5
+points_reward = 8
+fire_rate = 2.0
+sprite_texture = ExtResource("3_jhiqx")
+
+[node name="Enemy" parent="." unique_id=2076106214 instance=ExtResource("2_kt7ms")]
+position = Vector2(170, 75)
+bullet_speed = 450.0
+fire_rate = 2.0
+
+[node name="Enemy7" parent="." unique_id=1002547870 instance=ExtResource("2_kt7ms")]
+position = Vector2(55, 120)
+fire_rate = 2.0
+
+[node name="Enemy10" parent="." unique_id=626587575 instance=ExtResource("2_kt7ms")]
+position = Vector2(95, 120)
+fire_rate = 2.0
+
+[node name="Enemy8" parent="." unique_id=1305314782 instance=ExtResource("2_kt7ms")]
+position = Vector2(125, 143)
+fire_rate = 2.0
+
+[node name="Enemy11" parent="." unique_id=1697085433 instance=ExtResource("2_kt7ms")]
+position = Vector2(155, 120)
+fire_rate = 2.0
+bullet_damage = 3
+
+[node name="Enemy9" parent="." unique_id=152119546 instance=ExtResource("2_kt7ms")]
+position = Vector2(193, 120)
+fire_rate = 2.0
+
+[node name="BlockTimer" type="Timer" parent="." unique_id=211348929]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="." unique_id=521098385]
+wait_time = 3.0
+autostart = true
+
+[node name="ShotTimer2" type="Timer" parent="." unique_id=518169400]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="ShotTimer2" to="." method="_on_shot_timer_2_timeout"]

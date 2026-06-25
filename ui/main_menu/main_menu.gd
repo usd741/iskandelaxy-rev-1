@@ -27,7 +27,7 @@ func check_saved_game():
 func _on_button_new_game_pressed():
 	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	Globals.reset()
-	TransitionManager.change_scene_with_fade("res://game/game.tscn")
+	TransitionManager.change_scene_with_fade("res://game/level_1.tscn")
 
 
 func _on_button_continue_pressed() -> void:

@@ -35,7 +35,6 @@ fire_rate = 2.0
 position = Vector2(125, 75)
 max_health = 5
 fire_rate = 2.0
-bullet_damage = 3
 sprite_texture = ExtResource("3_umucn")
 
 [node name="Enemy" parent="." unique_id=2076106214 instance=ExtResource("2_umucn")]
@@ -73,7 +72,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="ShotTimer2" type="Timer" parent="." unique_id=518169400]
-wait_time = 0.5
+wait_time = 1.5
 autostart = true
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

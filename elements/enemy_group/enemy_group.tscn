@@ -38,4 +38,9 @@ one_shot = true
 wait_time = 2.0
 autostart = true
 
+[node name="ShotTimer2" type="Timer" parent="." unique_id=1645219095]
+wait_time = 0.5
+autostart = true
+
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="ShotTimer2" to="." method="_on_shot_timer_2_timeout"]

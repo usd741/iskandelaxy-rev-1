@@ -3,7 +3,7 @@ extends CharacterBody2D
 const ROCKET_SCENE = preload("res://elements/rocket/rocket.tscn")
 const SPEED = 100.0
 
-@export var shoot_cooldown_duration: float = 0.5 #Настраиваемая переменная для кулдауна (можно менять в инспекторе)
+@export var shoot_cooldown_duration: float = 0.0 #Настраиваемая переменная для кулдауна (можно менять в инспекторе)
 
 #---Переменные здоровья---#
 @export var max_health: int = 3 #Максимальное здоровье, можно менять в инспекторе

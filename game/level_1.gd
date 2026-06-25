@@ -45,6 +45,7 @@ func win_level():
 	if is_game_ended:
 		return # Защита от двойного срабатывания
 	is_game_ended = true
+	Globals.should_animate_marker = true #Поднимаем флаг анимации для карты
 	
 	Globals.current_level += 1
 	

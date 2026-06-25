@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j31m7m3vlwcu"]
 
-[ext_resource type="Script" uid="uid://jbngmh0ll54d" path="res://game/game.gd" id="1_dakft"]
+[ext_resource type="Script" uid="uid://jbngmh0ll54d" path="res://game/level_1.gd" id="1_dakft"]
 [ext_resource type="PackedScene" uid="uid://cbbeoqqx66eq2" path="res://ui/hud/hud.tscn" id="1_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://ceslqqo5r6lpk" path="res://elements/space_ship/space_ship.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://l8863w8tf50j" path="res://game/background_level_1_3.tscn" id="3_dakft"]

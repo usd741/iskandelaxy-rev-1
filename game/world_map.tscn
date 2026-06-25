@@ -31,17 +31,31 @@ offset_bottom = 95.0
 
 [node name="Level2Node" type="ColorRect" parent="LevelNodes" unique_id=1072109064]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 171.0
-offset_right = 140.0
-offset_bottom = 211.0
+offset_left = 97.0
+offset_top = 177.0
+offset_right = 137.0
+offset_bottom = 217.0
 
 [node name="Level3Node" type="ColorRect" parent="LevelNodes" unique_id=50376875]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 314.0
-offset_right = 114.0
-offset_bottom = 354.0
+offset_left = 56.0
+offset_top = 290.0
+offset_right = 96.0
+offset_bottom = 330.0
+
+[node name="Level4Node" type="ColorRect" parent="LevelNodes" unique_id=2021065816]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 284.0
+offset_right = 239.0
+offset_bottom = 324.0
+
+[node name="Level5Node" type="ColorRect" parent="LevelNodes" unique_id=1757732687]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 108.0
+offset_right = 222.0
+offset_bottom = 148.0
 
 [node name="PlayerMarker" type="ColorRect" parent="." unique_id=1344065373]
 layout_mode = 0
@@ -52,8 +66,9 @@ offset_bottom = 83.0
 color = Color(0.3830269, 0.6153554, 0.85082346, 1)
 
 [node name="PathLine" type="Line2D" parent="." unique_id=1240311272]
+visible = false
 points = PackedVector2Array(80, 75, 120, 192, 95, 335)
-default_color = Color(1, 0.65, 0.65, 1)
+width = 5.0
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
@@ -72,7 +87,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 399.27)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=380849513]
+[node name="NextLevelButton" type="Button" parent="VBoxContainer" unique_id=380849513]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Перейти на следующий уровень"

@@ -1,12 +1,14 @@
 extends Node
 
+var should_animate_marker: bool = false #Флаг для анимации карты на карте
 var current_level: int = 1
 var max_unlocked_level: int = 1
 
 var level_scenes = {
-	1: "res://game/game.tscn",
+	1: "res://game/level_1.tscn",
 	2: "res://game/level_2.tscn",
-	3: "res://game/level_3.tscn"
+	3: "res://game/level_3.tscn",
+	4: "res://game/level_4.tscn"
 }
 
 var points: int = 0

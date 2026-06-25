@@ -21,12 +21,12 @@ func _on_btn_next_stage_pressed() -> void:
 	AudioManager.play_click() # Воспроизводим звук клика при нажатии на кнопку
 	clear_bullets() #чистим пули
 	clear_power_up() #чистим павер апы
-	var next_path = Globals.get_level_path()
+	#var next_path = Globals.get_level_path()
 	Globals.save_game()
-	if next_path != "":
-		TransitionManager.change_scene_with_fade(next_path)
-	else:
-		TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")
+	#if next_path != "":
+	TransitionManager.change_scene_with_fade("res://game/world_map.tscn")
+	#else:
+	#	TransitionManager.change_scene_with_fade("res://ui/main_menu/main_menu.tscn")
 
 
 func _on_btn_main_menu_pressed() -> void:
