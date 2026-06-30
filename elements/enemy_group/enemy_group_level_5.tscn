@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bb1twuktjf200"]
+
+[ext_resource type="Script" uid="uid://bvmcju0gbyks3" path="res://elements/enemy_group/enemy_group.gd" id="1_t8hly"]
+[ext_resource type="PackedScene" uid="uid://chimxleawne0o" path="res://elements/enemy/enemy.tscn" id="2_1imvx"]
+[ext_resource type="PackedScene" uid="uid://dkydwwusxiayd" path="res://elements/powerUp/power_up_weapon_wide_shot.tscn" id="3_jg4bx"]
+[ext_resource type="PackedScene" uid="uid://cda5v18uy46u5" path="res://elements/enemy_bullet/enemy_bullet_big.tscn" id="4_ahsqu"]
+[ext_resource type="Texture2D" uid="uid://d05rgskll2k84" path="res://elements/enemy/Kla'ed - Bomber - Base.png" id="4_kdger"]
+[ext_resource type="Texture2D" uid="uid://c013y5u6a5p77" path="res://elements/Kla'ed - Frigate - Base.png" id="4_w7g3f"]
+[ext_resource type="Texture2D" uid="uid://wf0cu8ya0ohw" path="res://elements/enemy/Kla'ed - Torpedo Ship - Base.png" id="5_1imvx"]
+[ext_resource type="PackedScene" uid="uid://38w2g13dpa6d" path="res://elements/enemy_bullet/enemy_bullet_torpedo.tscn" id="5_jg4bx"]
+
+[node name="Enemy group_level_5" type="Node2D" unique_id=574652516 groups=["enemy_group"]]
+script = ExtResource("1_t8hly")
+
+[node name="Enemy_tier3_1" parent="." unique_id=354368420 groups=["enemy_tier_2"] instance=ExtResource("2_1imvx")]
+position = Vector2(74, 64)
+powerup_scenes = Array[PackedScene]([ExtResource("3_jg4bx")])
+max_health = 12
+points_reward = 8
+bullet_scene = ExtResource("4_ahsqu")
+powerup_drop_chance = 0.8
+sprite_texture = ExtResource("4_w7g3f")
+
+[node name="Enemy_tier3_4" parent="." unique_id=135886403 groups=["enemy_tier_2"] instance=ExtResource("2_1imvx")]
+position = Vector2(276, 64)
+powerup_scenes = Array[PackedScene]([ExtResource("3_jg4bx")])
+max_health = 12
+points_reward = 8
+bullet_scene = ExtResource("4_ahsqu")
+powerup_drop_chance = 0.8
+sprite_texture = ExtResource("4_w7g3f")
+
+[node name="Enemy6" parent="." unique_id=999893829 instance=ExtResource("2_1imvx")]
+position = Vector2(141, 64)
+max_health = 3
+fire_rate = 2.0
+
+[node name="Enemy_tier2_1" parent="." unique_id=702530719 groups=["enemy_tier_2"] instance=ExtResource("2_1imvx")]
+position = Vector2(171, 64)
+powerup_scenes = Array[PackedScene]([ExtResource("3_jg4bx")])
+max_health = 5
+points_reward = 8
+fire_rate = 2.0
+sprite_texture = ExtResource("4_kdger")
+
+[node name="Enemy12" parent="." unique_id=706594731 instance=ExtResource("2_1imvx")]
+position = Vector2(201, 64)
+max_health = 3
+fire_rate = 2.0
+
+[node name="Enemy4" parent="." unique_id=1666299223 instance=ExtResource("2_1imvx")]
+position = Vector2(108, 109)
+max_health = 3
+fire_rate = 2.0
+
+[node name="Enemy5" parent="." unique_id=42739849 instance=ExtResource("2_1imvx")]
+position = Vector2(44, 109)
+max_health = 3
+fire_rate = 2.0
+
+[node name="Enemy_tier2_2" parent="." unique_id=1888360416 groups=["enemy_tier_2"] instance=ExtResource("2_1imvx")]
+position = Vector2(171, 109)
+powerup_scenes = Array[PackedScene]([ExtResource("3_jg4bx")])
+max_health = 5
+points_reward = 8
+fire_rate = 2.0
+sprite_texture = ExtResource("4_kdger")
+
+[node name="Enemy" parent="." unique_id=2076106214 instance=ExtResource("2_1imvx")]
+position = Vector2(240, 109)
+max_health = 3
+bullet_speed = 450.0
+fire_rate = 2.0
+
+[node name="Enemy2" parent="." unique_id=1919440074 instance=ExtResource("2_1imvx")]
+position = Vector2(310, 109)
+max_health = 3
+bullet_speed = 450.0
+fire_rate = 2.0
+
+[node name="Enemy7" parent="." unique_id=1002547870 instance=ExtResource("2_1imvx")]
+position = Vector2(77, 154)
+max_health = 3
+fire_rate = 2.0
+
+[node name="Enemy10" parent="." unique_id=626587575 instance=ExtResource("2_1imvx")]
+position = Vector2(141, 154)
+max_health = 3
+fire_rate = 2.0
+
+[node name="Enemy_Torpedo" parent="." unique_id=1305314782 groups=["enemy_tier_2"] instance=ExtResource("2_1imvx")]
+position = Vector2(171, 194)
+powerup_scenes = Array[PackedScene]([ExtResource("3_jg4bx")])
+max_health = 12
+points_reward = 12
+bullet_scene = ExtResource("5_jg4bx")
+fire_rate = 2.0
+powerup_drop_chance = 1.0
+sprite_texture = ExtResource("5_1imvx")
+
+[node name="Enemy11" parent="." unique_id=1697085433 instance=ExtResource("2_1imvx")]
+position = Vector2(201, 154)
+max_health = 3
+fire_rate = 2.0
+bullet_damage = 3
+
+[node name="Enemy9" parent="." unique_id=152119546 instance=ExtResource("2_1imvx")]
+position = Vector2(277, 154)
+max_health = 3
+fire_rate = 2.0
+
+[node name="BlockTimer" type="Timer" parent="." unique_id=211348929]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="." unique_id=521098385]
+wait_time = 3.0
+autostart = true
+
+[node name="ShotTimer2" type="Timer" parent="." unique_id=518169400]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="ShotTimer2" to="." method="_on_shot_timer_2_timeout"]

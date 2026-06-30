@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://hdkgdrilkfv1"]
 
-[ext_resource type="Script" uid="uid://8eyhc8o7x5yu" path="res://game/level_2.gd" id="1_vb3c5"]
+[ext_resource type="Script" uid="uid://jbngmh0ll54d" path="res://game/level_1.gd" id="1_vb3c5"]
 [ext_resource type="PackedScene" uid="uid://cbbeoqqx66eq2" path="res://ui/hud/hud.tscn" id="2_iam34"]
-[ext_resource type="PackedScene" uid="uid://l8863w8tf50j" path="res://game/background_level_1_3.tscn" id="3_iam34"]
+[ext_resource type="PackedScene" uid="uid://c131yirqxxfep" path="res://game/background_level_2.tscn" id="3_vb3c5"]
 [ext_resource type="PackedScene" uid="uid://ceslqqo5r6lpk" path="res://elements/space_ship/space_ship.tscn" id="4_bb515"]
 [ext_resource type="PackedScene" uid="uid://bmemety8138ix" path="res://elements/wall/wall.tscn" id="5_htpge"]
 [ext_resource type="PackedScene" uid="uid://bcnx6hcwsamnr" path="res://elements/enemy_group/enemy_group_level_2.tscn" id="6_iam34"]
@@ -12,7 +12,7 @@ script = ExtResource("1_vb3c5")
 
 [node name="HUD" parent="." unique_id=451307600 instance=ExtResource("2_iam34")]
 
-[node name="ParallaxBackground" parent="." unique_id=1902122083 instance=ExtResource("3_iam34")]
+[node name="background_level_2" parent="." unique_id=1902122083 instance=ExtResource("3_vb3c5")]
 
 [node name="SpaceShip" parent="." unique_id=650018351 instance=ExtResource("4_bb515")]
 position = Vector2(320, 420)

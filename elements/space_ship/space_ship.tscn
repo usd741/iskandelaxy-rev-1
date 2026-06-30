@@ -2,15 +2,104 @@
 
 [ext_resource type="Script" uid="uid://cvfimk044m52x" path="res://elements/space_ship/space_ship.gd" id="1_yhe4x"]
 [ext_resource type="Texture2D" uid="uid://buujauieb3qwf" path="res://assets/space_ship.png" id="1_yr3lb"]
+[ext_resource type="Texture2D" uid="uid://1yq1owv1c5pg" path="res://assets/spaceShip_adds/Main Ship - Weapons - Big Space Gun.png" id="2_klmva"]
+[ext_resource type="Texture2D" uid="uid://b4qkqfrbhckt2" path="res://assets/spaceShip_adds/Main Ship - Engines - Supercharged Engine - Powering.png" id="4_fwsjs"]
+[ext_resource type="Texture2D" uid="uid://b1vh04c3hgjqs" path="res://assets/spaceShip_adds/Main Ship - Engines - Base Engine.png" id="4_yp4ui"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq30a"]
+atlas = ExtResource("4_fwsjs")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16bsw"]
+atlas = ExtResource("4_fwsjs")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gycp"]
+atlas = ExtResource("4_fwsjs")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y1jt"]
+atlas = ExtResource("4_fwsjs")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqvk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq30a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16bsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gycp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y1jt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwsjs"]
+atlas = ExtResource("2_klmva")
+region = Rect2(352, 14, 17, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykc67"]
 radius = 15.0
 
 [node name="SpaceShip" type="CharacterBody2D" unique_id=650018351]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_yhe4x")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=659470608]
+[node name="leftEngine" type="Control" parent="." unique_id=803152568]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 29.0
+offset_bottom = 31.0
+
+[node name="engineEffect" type="AnimatedSprite2D" parent="leftEngine" unique_id=1046365384]
+position = Vector2(1, 12)
+scale = Vector2(0.535, 0.535)
+sprite_frames = SubResource("SpriteFrames_iqvk2")
+autoplay = "default"
+frame_progress = 0.016031703
+
+[node name="engine" type="Sprite2D" parent="leftEngine" unique_id=797535281]
+position = Vector2(1, 13)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_yp4ui")
+
+[node name="rightEngine" type="Control" parent="." unique_id=1935280531]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = -9.0
+offset_right = 49.0
+offset_bottom = 31.0
+
+[node name="engineEffect" type="AnimatedSprite2D" parent="rightEngine" unique_id=230499579]
+position = Vector2(1, 12)
+scale = Vector2(0.535, 0.535)
+sprite_frames = SubResource("SpriteFrames_iqvk2")
+autoplay = "default"
+frame_progress = 0.32588923
+
+[node name="engine" type="Sprite2D" parent="rightEngine" unique_id=488287686]
+position = Vector2(1, 13)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_yp4ui")
+
+[node name="weapon" type="Sprite2D" parent="." unique_id=1770237781]
+position = Vector2(0, -13)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_fwsjs")
+
+[node name="ship_base" type="Sprite2D" parent="." unique_id=659470608]
 texture = ExtResource("1_yr3lb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1935385987]

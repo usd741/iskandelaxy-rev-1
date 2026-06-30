@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cda5v18uy46u5"]
+
+[ext_resource type="Script" uid="uid://c8g3ku0d2m84n" path="res://elements/enemy_bullet/enemy_bullet_torpedo.gd" id="1_t0yw4"]
+[ext_resource type="Texture2D" uid="uid://08oa8jkx6bp1" path="res://assets/enemy_bullet/Kla'ed - Big Bullet.png" id="2_t0yw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fx17"]
+atlas = ExtResource("2_t0yw4")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c6sp"]
+atlas = ExtResource("2_t0yw4")
+region = Rect2(8, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6ru5"]
+atlas = ExtResource("2_t0yw4")
+region = Rect2(16, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlqln"]
+atlas = ExtResource("2_t0yw4")
+region = Rect2(24, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ygb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fx17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c6sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6ru5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlqln")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iumo1"]
+radius = 2.0
+height = 14.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iumo1"]
+
+[sub_resource type="Curve" id="Curve_iumo1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.45796442, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.23425114, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iumo1"]
+curve = SubResource("Curve_iumo1")
+
+[sub_resource type="Gradient" id="Gradient_iumo1"]
+offsets = PackedFloat32Array(0, 0.16355905, 0.4347455, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8833333, 0, 1, 1, 0.00999999, 0.026499748, 1, 1, 0, 0.016666412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l0oir"]
+gradient = SubResource("Gradient_iumo1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l0oir"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -4.14, 0)
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = 180.00002
+angle_max = 180.00002
+direction = Vector3(0, -1, 0)
+spread = 8.0
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 50, 0)
+linear_accel_min = -75.0
+linear_accel_max = 19.999998
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.59999996
+color_ramp = SubResource("GradientTexture1D_l0oir")
+alpha_curve = SubResource("CurveTexture_iumo1")
+
+[node name="enemyBullet_torpedo" type="CharacterBody2D" unique_id=805566257 groups=["enemy_bullet"]]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_t0yw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=750418900]
+sprite_frames = SubResource("SpriteFrames_5ygb8")
+autoplay = "default"
+frame_progress = 0.26483548
+flip_v = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=2005730912]
+position = Vector2(-7.9999995, 6)
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_5ygb8")
+autoplay = "default"
+frame_progress = 0.040814437
+flip_v = true
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1736837576]
+position = Vector2(8, 6)
+sprite_frames = SubResource("SpriteFrames_5ygb8")
+autoplay = "default"
+frame_progress = 0.040814437
+flip_v = true
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=1753622560]
+position = Vector2(0, 16)
+scale = Vector2(1.695, 1.695)
+sprite_frames = SubResource("SpriteFrames_5ygb8")
+autoplay = "default"
+frame_progress = 0.040814437
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1882793726]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_iumo1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=195260190]
+position = Vector2(0, -1)
+rect = Rect2(-3, -9, 6, 14)
+
+[node name="TrailParicles" type="GPUParticles2D" parent="." unique_id=2079120917]
+visible = false
+material = SubResource("ShaderMaterial_iumo1")
+position = Vector2(0, -3)
+amount = 32
+lifetime = 1.55
+trail_lifetime = 4.35
+process_material = SubResource("ParticleProcessMaterial_l0oir")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

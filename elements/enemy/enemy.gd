@@ -6,17 +6,19 @@ const POINT_BRONZE_SCENE = preload("res://elements/powerUp/power_up_bronze.tscn"
 const POINT_GOLD_SCENE = preload("res://elements/powerUp/power_up_gold.tscn")
 const POINT_DIAMOND_SCENE = preload("res://elements/powerUp/power_up_diamond.tscn")
 
+
 @export var powerup_scenes: Array[PackedScene] = [POINT_GOLD_SCENE, POINT_DIAMOND_SCENE, POINT_DIAMOND_SCENE]
 
 @onready var raycast_left := $RayCastLeft
 @onready var raycast_right := $RayCastRight
 @onready var death_particle: GPUParticles2D = $DeathParticles
 @onready var enemy_sprite: Sprite2D = $Sprite2D
+@onready var enemy_engine_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 #---Базовые характеристики---#
 @export var max_health: int = 1
 @export var bullet_speed: float = 150.0
-@export var points_reward: int = 10
+@export var points_reward: int = 1
 #---Базовые характеристики---#
 
 #---Стрельба---#
@@ -26,7 +28,7 @@ const POINT_DIAMOND_SCENE = preload("res://elements/powerUp/power_up_diamond.tsc
 #---Стрельба---#
 
 #---Бонусы---#
-@export var powerup_scene: Array[PackedScene] = []
+#@export var powerup_scene: Array[PackedScene] = []
 @export var powerup_drop_chance: float = 0.3 #шанс выпадания бонуса (0.0 - 1.0)
 #---Бонусы---#
 
@@ -42,6 +44,7 @@ signal died
 #---Переменные состояния---#
 var current_health: int
 var fire_timer: float = 0.0
+var is_dead: bool = false
 #---Переменные состояния---#
 
 #-------------------------#
@@ -55,6 +58,7 @@ func _ready():
 	if sprite_texture:
 		enemy_sprite.texture = sprite_texture
 	enemy_sprite.modulate = tint_color
+	
 		
 
 func _physics_process(_delta):
@@ -70,6 +74,7 @@ func _physics_process(_delta):
 
 
 func take_damage(amount: int): #система здоровья
+	if is_dead: return
 	AudioManager.play_regular_explosion()
 	current_health -= amount
 
@@ -79,7 +84,9 @@ func take_damage(amount: int): #система здоровья
 	enemy_sprite.modulate = tint_color
 
 	if current_health <= 0:
+		is_dead = true
 		destroy()
+		return
 
 func destroy():
 	AudioManager.play_regular_explosion()
@@ -87,6 +94,7 @@ func destroy():
 	set_process(false)
 	$AnimatedSprite2D.visible = false
 	enemy_sprite.visible = false
+	
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 	#Начисляем очки

@@ -30,7 +30,7 @@ func _ready():
 func count_initial_enemies():
 	total_enemies = 0
 	for child in get_children():
-		if child != block_timer and child != shot_timer:
+		if child != block_timer and child != shot_timer and child != shot_timer_tier_2:
 			total_enemies += 1
 			#Подписываемся на сигнал смерти каждого врага
 			if child.has_signal("died"):

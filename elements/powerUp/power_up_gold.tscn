@@ -8,9 +8,9 @@
 radius = 25.0
 height = 50.0
 
-[node name="PowerUp_Gold" type="CharacterBody2D" unique_id=1643892142 groups=["power_up"]]
+[node name="PowerUp_Gold" type="Area2D" unique_id=327289819 groups=["power_up"]]
 scale = Vector2(0.15, 0.15)
-collision_layer = 0
+collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_ys4ns")
 points_value = 5
@@ -31,4 +31,5 @@ rect = Rect2(-30, -30, 60, 60)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1317429539]
 stream = ExtResource("3_21vjb")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

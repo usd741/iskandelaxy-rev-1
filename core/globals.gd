@@ -8,7 +8,8 @@ var level_scenes = {
 	1: "res://game/level_1.tscn",
 	2: "res://game/level_2.tscn",
 	3: "res://game/level_3.tscn",
-	4: "res://game/level_4.tscn"
+	4: "res://game/level_4.tscn",
+	5: "res://game/level_5.tscn"
 }
 
 var points: int = 0

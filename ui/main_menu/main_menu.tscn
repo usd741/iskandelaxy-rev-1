@@ -2,6 +2,39 @@
 
 [ext_resource type="Script" uid="uid://dwkiqo1ih6vn3" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
 [ext_resource type="Theme" uid="uid://cnhkwmohvf8s6" path="res://ui/global_theme.tres" id="2_mu8pm"]
+[ext_resource type="Texture2D" uid="uid://y1s848rh5d8k" path="res://assets/main_menu/space.png" id="2_omy8q"]
+[ext_resource type="Texture2D" uid="uid://s3d8onhjwvmn" path="res://Splash.png" id="3_3c04x"]
+[ext_resource type="Texture2D" uid="uid://byff5fcrh1n5i" path="res://assets/main_menu/UiCozyFree.png" id="4_i5wg5"]
+[ext_resource type="Texture2D" uid="uid://dmxuxi24kpj34" path="res://assets/main_menu/shadow_horizontal1.tres" id="4_joh67"]
+
+[sub_resource type="Gradient" id="Gradient_cdjul"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u184e"]
+gradient = SubResource("Gradient_cdjul")
+width = 32
+height = 266
+fill_from = Vector2(1, 0.0234597)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_u184e"]
+offsets = PackedFloat32Array(0, 0.4005513, 0.45202187, 1)
+colors = PackedColorArray(0.63529414, 0.19607843, 0.5294118, 1, 0.10980392, 0.11372549, 0.39607844, 1, 1, 0.98, 1, 1, 0.19999999, 0.5600002, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6mijq"]
+gradient = SubResource("Gradient_u184e")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_joh67"]
+load_path = "res://.godot/imported/UiCozyFree.png-dfb796039a56519e3ae1289c9a4ea31d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u184e"]
+atlas = SubResource("CompressedTexture2D_joh67")
+region = Rect2(134, 41, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c04x"]
+atlas = ExtResource("4_i5wg5")
+region = Rect2(194, 24, 58, 70)
 
 [node name="MainMenu" type="Control" unique_id=772982793]
 layout_mode = 3
@@ -12,14 +45,99 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhj5c")
 
+[node name="Sprite2D_background" type="Sprite2D" parent="." unique_id=1501748474]
+position = Vector2(352, 239.00002)
+scale = Vector2(0.63802075, 0.6380209)
+texture = ExtResource("2_omy8q")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1629110244]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 215.0
+offset_top = 222.0
+offset_right = -215.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=157673722]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.16666663, 0.25, 1)
+color = Color(0, 0, 0, 0.36078432)
+
+[node name="Sprite2D_background2" type="Sprite2D" parent="." unique_id=1044513761]
+position = Vector2(322.81784, 88.000015)
+scale = Vector2(0.4210506, 0.44743884)
+texture = ExtResource("3_3c04x")
+region_enabled = true
+region_rect = Rect2(0, 0, 1664, 600)
+
+[node name="Shadow4" type="Sprite2D" parent="." unique_id=1083654604]
+position = Vector2(536, 239)
+texture = ExtResource("4_joh67")
+
+[node name="Shadow3" type="Sprite2D" parent="." unique_id=1779465370]
+position = Vector2(441, 357)
+rotation = -3.1415925
+texture = SubResource("GradientTexture2D_u184e")
+
+[node name="Shadow2" type="Sprite2D" parent="." unique_id=506272609]
+position = Vector2(198, 357)
+texture = SubResource("GradientTexture2D_u184e")
+
+[node name="Shadow1" type="Sprite2D" parent="." unique_id=959080784]
+position = Vector2(104, 239)
+texture = ExtResource("4_joh67")
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=2020144679]
+points = PackedVector2Array(215, 222, 425, 222)
+texture = SubResource("GradientTexture2D_6mijq")
+texture_mode = 2
+joint_mode = 1
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1668765662]
+points = PackedVector2Array(-28, 222, 215, 222, 215, 491, 424, 491, 424, 222, 674, 222)
+texture = SubResource("GradientTexture2D_6mijq")
+texture_mode = 2
+joint_mode = 2
+sharp_limit = 0.0
+round_precision = 4
+
+[node name="Control" type="Control" parent="." unique_id=748908844]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D_cup3" type="Sprite2D" parent="Control" unique_id=404196926]
+position = Vector2(321.59998, 409.99997)
+scale = Vector2(1.7, 1.7)
+texture = SubResource("AtlasTexture_u184e")
+
+[node name="Sprite2D_cup2" type="Sprite2D" parent="Control" unique_id=5196067]
+position = Vector2(266.6, 410.99997)
+scale = Vector2(1.7, 1.7)
+texture = SubResource("AtlasTexture_u184e")
+
+[node name="Sprite2D_cup" type="Sprite2D" parent="Control" unique_id=798215687]
+position = Vector2(289.2, 436.5)
+scale = Vector2(1.7, 1.7)
+texture = SubResource("AtlasTexture_u184e")
+
+[node name="Sprite2D_coffee" type="Sprite2D" parent="Control" unique_id=250914003]
+position = Vector2(361.19998, 402.5)
+scale = Vector2(1.7, 1.7)
+texture = SubResource("AtlasTexture_3c04x")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1314644300]
 layout_mode = 1
@@ -34,6 +152,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Label_GameName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1110697769]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_mu8pm")
 theme_override_font_sizes/font_size = 32
@@ -42,7 +161,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=259913827]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 91.965)
 layout_mode = 2
 
 [node name="Button_NewGame" type="Button" parent="MarginContainer/VBoxContainer" unique_id=172463025]

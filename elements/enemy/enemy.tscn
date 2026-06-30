@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dqig6a2tkmnm7" path="res://elements/enemy/enemy.gd" id="1_j4vrh"]
 [ext_resource type="PackedScene" uid="uid://dfbim4mccfgv4" path="res://elements/enemy_bullet/enemy_bullet.tscn" id="2_ek21h"]
-[ext_resource type="PackedScene" uid="uid://tkq4y3m8tuny" path="res://elements/powerUp/power_up_bronze.tscn" id="3_1cx0d"]
 [ext_resource type="Texture2D" uid="uid://bfajdbwdhen0x" path="res://elements/enemy/Kla'ed - Scout - Engine.png" id="4_vjsli"]
 [ext_resource type="Texture2D" uid="uid://d0g8d4iy3vj0u" path="res://elements/enemy/Kla'ed - Scout - Base.png" id="5_24dpr"]
 
@@ -152,17 +151,15 @@ turbulence_noise_strength = 0.0
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_j4vrh")
-points_reward = 1
 bullet_scene = ExtResource("2_ek21h")
 fire_rate = 0.05
-powerup_scene = Array[PackedScene]([ExtResource("3_1cx0d")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=181969280]
 position = Vector2(0, -29.165)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_1cx0d")
 autoplay = "default"
-frame_progress = 0.33528915
+frame_progress = 0.98216957
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1561738896]
 texture = ExtResource("5_24dpr")

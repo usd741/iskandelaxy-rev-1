@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bvmcju0gbyks3" path="res://elements/enemy_group/enemy_group.gd" id="1_dsy0p"]
 [ext_resource type="PackedScene" uid="uid://chimxleawne0o" path="res://elements/enemy/enemy.tscn" id="2_kt7ms"]
-[ext_resource type="Texture2D" uid="uid://gksn8p2rxb8m" path="res://elements/enemy/Kla'ed - Bomber - Base.png" id="3_jhiqx"]
+[ext_resource type="Texture2D" uid="uid://d05rgskll2k84" path="res://elements/enemy/Kla'ed - Bomber - Base.png" id="3_jhiqx"]
+[ext_resource type="PackedScene" uid="uid://dkydwwusxiayd" path="res://elements/powerUp/power_up_weapon_wide_shot.tscn" id="3_m2y6l"]
 
 [node name="Enemy group_level_4" type="Node2D" unique_id=574652516 groups=["enemy_group"]]
 script = ExtResource("1_dsy0p")
@@ -14,9 +15,9 @@ position = Vector2(55, 30)
 position = Vector2(95, 30)
 fire_rate = 2.0
 
-[node name="Enemy_tier2_1" parent="." unique_id=702530719 instance=ExtResource("2_kt7ms")]
+[node name="Enemy_tier2_1" parent="." unique_id=702530719 groups=["enemy_tier_2"] instance=ExtResource("2_kt7ms")]
 position = Vector2(125, 30)
-max_health = 5
+powerup_scenes = Array[PackedScene]([ExtResource("3_m2y6l")])
 points_reward = 8
 fire_rate = 2.0
 sprite_texture = ExtResource("3_jhiqx")
@@ -30,40 +31,55 @@ position = Vector2(193, 30)
 fire_rate = 2.0
 
 [node name="Enemy4" parent="." unique_id=1666299223 instance=ExtResource("2_kt7ms")]
-position = Vector2(80, 75)
+position = Vector2(75, 75)
+max_health = 3
+points_reward = 8
 fire_rate = 2.0
 
 [node name="Enemy_tier2_2" parent="." unique_id=1888360416 groups=["enemy_tier_2"] instance=ExtResource("2_kt7ms")]
 position = Vector2(125, 75)
+powerup_scenes = Array[PackedScene]([ExtResource("3_m2y6l")])
 max_health = 5
 points_reward = 8
 fire_rate = 2.0
 sprite_texture = ExtResource("3_jhiqx")
 
 [node name="Enemy" parent="." unique_id=2076106214 instance=ExtResource("2_kt7ms")]
-position = Vector2(170, 75)
+position = Vector2(174, 75)
+max_health = 3
 bullet_speed = 450.0
+points_reward = 8
 fire_rate = 2.0
 
 [node name="Enemy7" parent="." unique_id=1002547870 instance=ExtResource("2_kt7ms")]
 position = Vector2(55, 120)
+max_health = 3
+points_reward = 8
 fire_rate = 2.0
 
 [node name="Enemy10" parent="." unique_id=626587575 instance=ExtResource("2_kt7ms")]
 position = Vector2(95, 120)
+max_health = 3
+points_reward = 8
 fire_rate = 2.0
 
 [node name="Enemy8" parent="." unique_id=1305314782 instance=ExtResource("2_kt7ms")]
 position = Vector2(125, 143)
+max_health = 3
+points_reward = 8
 fire_rate = 2.0
 
 [node name="Enemy11" parent="." unique_id=1697085433 instance=ExtResource("2_kt7ms")]
 position = Vector2(155, 120)
+max_health = 3
+points_reward = 8
 fire_rate = 2.0
 bullet_damage = 3
 
 [node name="Enemy9" parent="." unique_id=152119546 instance=ExtResource("2_kt7ms")]
 position = Vector2(193, 120)
+max_health = 3
+points_reward = 8
 fire_rate = 2.0
 
 [node name="BlockTimer" type="Timer" parent="." unique_id=211348929]

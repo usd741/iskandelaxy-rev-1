@@ -25,7 +25,7 @@ func _on_resume_pressed() -> void: #1. Кнопка "Продолжить"
 func _on_restart_pressed() -> void: #2. Кнопка "Перезапустить уровень"
 	AudioManager.play_pause_out() # Воспроизводим звук снятия паузы
 	get_tree().paused = false # Снимаем паузу
-	TransitionManager.change_scene_with_fade(get_tree().get_current_scene().get_path()) # Перезагружаем текущий уровень
+	TransitionManager.change_scene_with_fade(Globals.get_level_path()) # Перезагружаем текущий уровень
 	
 
 func _on_main_menu_pressed() -> void: #3. Кнопка "Главное меню"

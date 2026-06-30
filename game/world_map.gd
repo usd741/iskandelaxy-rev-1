@@ -44,10 +44,10 @@ func _color_level_nodes() -> void:
 		if level_number < Globals.current_level:
 			level_node.color = COLOR_COMPLETED
 		elif level_number == Globals.current_level:
-			level_node.color = COLOR_CURRENT
+			level_node.visible = true
 		else:
-			level_node.color = COLOR_LOCKED
-			_animate_node_blink(level_node) #запускаем мигание
+			level_node.visible = false
+			#_animate_node_blink(level_node) #запускаем мигание
 
 func _update_marker_position():
 	var node_index: int = Globals.current_level -1 #обозначаем что индекс узла это -1 от технического номера уровня. То есть 4 уровень для игрока = 3 уровень для кода

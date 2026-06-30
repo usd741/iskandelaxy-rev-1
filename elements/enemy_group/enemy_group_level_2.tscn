@@ -23,18 +23,24 @@ position = Vector2(155, 57)
 
 [node name="Enemy7" parent="." unique_id=1002547870 instance=ExtResource("2_sptv3")]
 position = Vector2(65, 95)
+max_health = 3
+points_reward = 9
 
 [node name="Enemy10" parent="." unique_id=626587575 instance=ExtResource("2_sptv3")]
 position = Vector2(95, 95)
 
 [node name="Enemy8" parent="." unique_id=1305314782 instance=ExtResource("2_sptv3")]
 position = Vector2(125, 95)
+max_health = 3
+points_reward = 9
 
 [node name="Enemy11" parent="." unique_id=1697085433 instance=ExtResource("2_sptv3")]
 position = Vector2(155, 95)
 
 [node name="Enemy9" parent="." unique_id=152119546 instance=ExtResource("2_sptv3")]
 position = Vector2(185, 95)
+max_health = 3
+points_reward = 9
 
 [node name="BlockTimer" type="Timer" parent="." unique_id=211348929]
 wait_time = 0.2

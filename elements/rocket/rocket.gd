@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var player_laser_animation = $AnimatedSprite2D
 
-var SPEED = 200.0
+@export var SPEED = 250.0
 
 func _ready() -> void:
 	player_laser_animation.play("default") # Запускаем анимацию ОДИН РАЗ при создании пули

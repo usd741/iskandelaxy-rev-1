@@ -10,10 +10,12 @@ var is_game_ended = false
 
 func _ready():
 	is_game_ended = false
+	get_tree().paused = false
 	Events.lives_changed.connect(_on_lives_changed) #Подписываемся на изменение жизней
 	check_game_over()
-	Globals.current_level =3
+	#Globals.current_level =3
 	AudioManager.play_music(AudioManager.music_level_7_10) #Запускаем музыку для уровня 7-10
+
 
 func _unhandled_input(event):
 	if not is_game_ended:

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cmcxud3wqd6k1"]
+
+[ext_resource type="Script" uid="uid://g370u8ctjjhk" path="res://elements/rocket/rocket.gd" id="1_b7p4b"]
+[ext_resource type="Texture2D" uid="uid://b2nglqsqhjuqi" path="res://assets/beams.png" id="2_unvgq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7p4b"]
+atlas = ExtResource("2_unvgq")
+region = Rect2(26, 102, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unvgq"]
+atlas = ExtResource("2_unvgq")
+region = Rect2(26, 136, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgv4b"]
+atlas = ExtResource("2_unvgq")
+region = Rect2(26, 170, 38, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oi7oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7p4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unvgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgv4b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qe8a"]
+radius = 5.9997716
+height = 33.998707
+
+[node name="BulletWide" type="CharacterBody2D" unique_id=34463870]
+top_level = true
+light_mask = 0
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_b7p4b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1385510673]
+position = Vector2(-3.32, -1.45)
+rotation = 1.5707964
+scale = Vector2(1, 1.5)
+sprite_frames = SubResource("SpriteFrames_oi7oa")
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1766211485]
+rotation = -1.5620697
+shape = SubResource("CapsuleShape2D_7qe8a")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=514814935]
+rect = Rect2(-3, -6, 6, 12)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

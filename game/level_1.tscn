@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://jbngmh0ll54d" path="res://game/level_1.gd" id="1_dakft"]
 [ext_resource type="PackedScene" uid="uid://cbbeoqqx66eq2" path="res://ui/hud/hud.tscn" id="1_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://ceslqqo5r6lpk" path="res://elements/space_ship/space_ship.tscn" id="2_vasa2"]
-[ext_resource type="PackedScene" uid="uid://l8863w8tf50j" path="res://game/background_level_1_3.tscn" id="3_dakft"]
+[ext_resource type="PackedScene" uid="uid://l8863w8tf50j" path="res://game/background_level_1.tscn" id="3_dakft"]
 [ext_resource type="PackedScene" uid="uid://bmemety8138ix" path="res://elements/wall/wall.tscn" id="3_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://d2td3iafuqpsd" path="res://elements/enemy_group/enemy_group.tscn" id="4_4fuuu"]
 

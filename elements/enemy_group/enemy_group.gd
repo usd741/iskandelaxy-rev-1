@@ -32,18 +32,24 @@ func count_initial_enemies():
 	for child in get_children():
 		if child != block_timer and child != shot_timer and child != shot_timer_2:
 			total_enemies += 1
+			print("DEBUG: Проверяем узел: ", child.name, " | Тип: ", child.get_class())
 			#Подписываемся на сигнал смерти каждого врага
 			if child.has_signal("died"):
+				print("DEBUG: Сигнал died найден у ", child.name)
 				child.died.connect(_on_enemy_unit_died)
+			else:
+				print("DEBUG: Сигнал died НЕ найден у ", child.name)
 	
 	print("Итого врагов на уровне:", total_enemies)
 
 #Эта функция вызывается при уничтожении врага
 func _on_enemy_unit_died():
+	print("DEBUG: Убит:_on_enemy_unit_died вызван в ", name)
 	dead_enemies_count += 1
-	
+	print("Убит: ", dead_enemies_count, "/", total_enemies)
 	#Проверяем победу
 	if dead_enemies_count >= total_enemies:
+		print("DEBUG: Условие победы выполнено!")
 		if game_manager_node:
 			game_manager_node.call_deferred("win_level")
 		print("Победа! Враги уничтожены.")

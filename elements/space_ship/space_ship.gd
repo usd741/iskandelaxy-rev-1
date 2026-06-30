@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-const ROCKET_SCENE = preload("res://elements/rocket/rocket.tscn")
+const WEAPON_BASE = preload("res://elements/rocket/rocket.tscn")
+var current_bullet = WEAPON_BASE
+
+
 const SPEED = 100.0
 
-@export var shoot_cooldown_duration: float = 0.0 #Настраиваемая переменная для кулдауна (можно менять в инспекторе)
+@export var shoot_cooldown_duration: float = 0.3 #Настраиваемая переменная для кулдауна (можно менять в инспекторе)
 
 #---Переменные здоровья---#
 @export var max_health: int = 3 #Максимальное здоровье, можно менять в инспекторе
@@ -36,9 +39,9 @@ func shot():
 	shoot_cooldown = shoot_cooldown_duration #Запускаем таймер перезарядки
 	#Стреляем
 	AudioManager.play_player_shoot()
-	var rocket = ROCKET_SCENE.instantiate()
-	rocket.global_position = global_position + Vector2(0, -10)
-	add_child(rocket)
+	var bullet = current_bullet.instantiate()
+	bullet.global_position = global_position + Vector2(0, -10)
+	add_child(bullet)
 
 func take_damage():
 	if is_invulnerable: #Если игрок неуязвим игнорируем урок
@@ -80,9 +83,16 @@ func respawn():
 
 	#Делаем игрока неуязвимым на 2 секунды
 	is_invulnerable = true
-	await await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(2).timeout
 	is_invulnerable = false
 	print("PLAYER IS VULNERABLE NOW")
 
 func point_plus():
 	print("POINT TAKEN")
+
+func upgrade_weapon(new_bullet: PackedScene, duration: float):
+	current_bullet = new_bullet
+	print("WEAPON UPGRADED for ", duration, "seconds")
+	await get_tree().create_timer(duration).timeout
+	current_bullet = WEAPON_BASE
+	print("WEAPON REVERTED to base")

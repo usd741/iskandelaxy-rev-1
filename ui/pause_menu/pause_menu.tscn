@@ -30,10 +30,14 @@ alignment = 1
 
 [node name="label_pause" type="Label" parent="MarginContainer/VBoxContainer" unique_id=774896057]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Игра на паузе"
+theme_override_font_sizes/font_size = 48
+text = "ПАУЗА"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1589987421]
+custom_minimum_size = Vector2(0, 68.845)
+layout_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=166691175]
 visible = false
@@ -42,15 +46,21 @@ text = "Набрано очков: "
 horizontal_alignment = 1
 
 [node name="btn_resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1151539210]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Продолжить"
 
 [node name="btn_restart" type="Button" parent="MarginContainer/VBoxContainer" unique_id=899117782]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Перезапустить уровень"
 
 [node name="btn_main_menu" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1498520948]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Сохранить и выйти в меню"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btn_resume" to="." method="_on_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="GradientTexture2D" format=3 uid="uid://dmxuxi24kpj34"]
+
+[sub_resource type="Gradient" id="Gradient_cdjul"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[resource]
+gradient = SubResource("Gradient_cdjul")
+width = 213
+height = 32
+fill_to = Vector2(0, 1)
